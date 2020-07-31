@@ -26,9 +26,11 @@ Features
     - Author
     - Session Date 
     
-Planned Features
+Planned Features 
+- Campaign Full CRUD
 - Search/ Filter functions to sort through campaigns
-- User log in and profile with access to see the campaigns you are apart of
+- User log in
+- Profile with access to see the campaigns you are apart of
 - Additions for the Campaigns -Narrative versus Crunch rating
 - Upcoming sessions
 - Age Range/ Difficulty
