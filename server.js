@@ -2,12 +2,12 @@
 const express = require('express')
 const app = express()
 const campaignsController = require('./controllers/campaigns.js')
+const sessionsController = require('./controllers/sessions.js')
 
 
-// middleware
+//middleware
+app.use('/sessions', sessionsController)
 
-
-// routes
 
 // route for campaign
 app.use('/campaigns', campaignsController)
