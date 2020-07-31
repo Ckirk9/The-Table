@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Sessions</title>
+</head>
+<body>
+    <header>
+        <h1>Create a new Session</h1>
+            <nav>
+                <ul>
+                    <li>
+                    <a href="/">Home</a>
+                    </li>
+                    <li>
+                    <a href="/sessions">Sessions Index</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <form action="/sessions" method="post">
+                <input type="text" name="title" /><br/>
+                <input type="date" name="date" /><br/>
+                <input type="text" name="name" /><br/>
+                <input type="submit" value="Publish Session Summary"/><br/>
+            </form>
+        </main>
+</body>
+</html>
