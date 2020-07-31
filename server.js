@@ -1,11 +1,16 @@
+// require statements
 const express = require('express')
 const app = express()
+const campaignsController = require('./controllers/campaigns.js')
 
 
+// middleware
 
 
+// routes
 
-
+// route for campaign
+app.use('/campaigns', campaignsController)
 
 // root route to homepage
 app.get('/', (req, res) => {
