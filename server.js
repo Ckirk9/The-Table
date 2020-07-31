@@ -1,9 +1,10 @@
 const express = require('express')
 const app = express()
+const sessionsController = require('./controllers/sessions.js')
 
 
-
-
+//middleware
+app.use('/sessions', sessionsController)
 
 
 
