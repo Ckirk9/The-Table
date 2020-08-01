@@ -3,6 +3,9 @@ const express = require('express')
 const app = express()
 const campaignsController = require('./controllers/campaigns.js')
 
+// I need these but don't know how to import them correctly???
+// import * as mdb from 'mdb-ui-kit'; 
+// @import '~mdb-ui-kit/css/mdb.min.css'; 
 
 // middleware
 
