@@ -20,7 +20,18 @@
         </nav>
     </header>
     <main>
-        <section><%=session.body%></section>
+        <section>
+            <%=session.body%>
+        </section>
+        <br/>
+        <section>
+            <form action="/sessions/<%=session._id%>?_method=DELETE" method="post">
+                <input type="submit" value="Delete Session"/>
+            </form>
+        </section>
+        <section>
+				<a href="/sessions/<%=session._id%>/edit">Edit</a>
+        </section>
     </main>
 </body>
 </html>
