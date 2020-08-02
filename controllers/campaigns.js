@@ -2,6 +2,7 @@
 const express = require('express')
 const router = express.Router()
 const Campaign = require('../models/campaign')
+const Session = require('../models/session') //needed for show page
 //const methodOverride = require('method-override')
 
 
@@ -33,8 +34,11 @@ router.post('/', (req,res) => {
 router.get('/:id', (req,res) => {
     Campaign.findById(req.params.id, (err, foundCampaign) => {
         //will need to find Sessions also
-        res.render('campaigns/show.ejs', {
-            campaigns: foundCampaign
+        Session.find({}, (err, foundSessions) => {
+            res.render('campaigns/show.ejs', {
+                campaign: foundCampaign,
+                sessions: foundSessions
+            })
         })
     })
 })
