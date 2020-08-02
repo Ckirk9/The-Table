@@ -11,6 +11,15 @@ router.get('/', (req, res) => {
     })
 }) 
 
+// path to edit
+router.get('/:id/edit', (req, res) => {
+    Session.findById(req.params.id, (err, foundSession)=>{
+        res.render('sessions/edit.ejs', {
+            session : foundSession
+        })
+    })
+})
+
 // path to delete
 router.delete('/:id', (req, res) =>{
     Session.findByIdAndDelete(req.param.id, () => {
