@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaigns Index</title>
+</head>
+<body>
+    <h1>Campaigns</h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/campaigns/new">New Campaign</a>
+            </li>
+        </ul>
+    </nav>
+    <ul>
+        <% campaigns.forEach(campaign => { %>
+            <li><a href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a></li>
+        <% }) %>
+    </ul>
+</body>
+</html>
