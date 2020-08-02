@@ -22,6 +22,13 @@ router.get('/new', (req, res) => {
     res.render('campaigns/new.ejs')
 })
 
+// CREATE
+router.post('/', (req,res) => {
+    Campaign.create(req.body,(err, createdCampaign) => {
+        res.redirect('/campaigns')
+    })
+})
+
 // SHOW
 router.get('/:id', (req,res) => {
     Campaign.findById(req.params.id, (err, foundCampaign) => {
