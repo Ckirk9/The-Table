@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaigns Show Page</title>
+</head>
+<body>
+    <h1><%= campaign.name %></h1>
+    <h3>Open Slot: <%= campaign.openSlots %></h3>
+    <h3>Dungeon Master: <%= campaign.dungeonMaster %></h3>
+    <h4>Players:<%= campaign.players %></h4>
+    <h4>Start Date: <%= campaign.startDate %></h4>
+    <p><%= campaign.description %></p>
+    <h4>Session Logs: </h4>
+    <ul>
+        <% sessions.forEach(session => { // if (session.campaign === campaign._id)%>
+            <li>
+                <a href="/sessions/<%= session._id %>"><%= session.title %></a>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

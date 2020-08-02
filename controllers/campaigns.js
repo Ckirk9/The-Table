@@ -5,7 +5,7 @@ const Campaign = require('../models/campaign')
 //const methodOverride = require('method-override')
 
 
-// Routes
+// ROUTES
 
 // INDEX
 router.get('/', (req, res) => {
@@ -17,7 +17,15 @@ router.get('/', (req, res) => {
     ))
 })
 
+// SHOW
+router.get('/:id', (req,res) => {
+    Campaign.findById(req.params.id, (err, foundCampaign) => {
+        res.render('campaigns/show.ejs', {
+            campaigns: foundCampaign
+        })
+    })
+})
 
 
-
+// Exports
 module.exports = router
