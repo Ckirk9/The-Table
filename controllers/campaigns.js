@@ -17,15 +17,20 @@ router.get('/', (req, res) => {
     ))
 })
 
+// NEW
+router.get('/new', (req, res) => {
+    res.render('campaigns/new.ejs')
+})
+
 // SHOW
 router.get('/:id', (req,res) => {
     Campaign.findById(req.params.id, (err, foundCampaign) => {
+        //will need to find Sessions also
         res.render('campaigns/show.ejs', {
             campaigns: foundCampaign
         })
     })
 })
-
 
 // Exports
 module.exports = router
