@@ -5,7 +5,6 @@ const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const sessionsController = require('./controllers/sessions.js')
 const campaignsController = require('./controllers/campaigns.js')
-const sessionsController = require('./controllers/sessions.js')
 
 //DB connection
 const connectionString = 'mongodb://localhost/the-table'
@@ -44,7 +43,7 @@ app.get('/', (req, res) => {
 
 
 //listen
-const PORT = 3000
+const PORT = 4000
 app.listen(PORT, () => {
-    console.log('listening')
+    console.log('listening on port: ' + PORT)
 })
