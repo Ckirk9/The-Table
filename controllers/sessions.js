@@ -16,6 +16,7 @@ router.get('/new', (req, res) => {
     res.render('sessions/new.ejs')
 })
 
+
 router.post('/', (req, res) => {
     Session.create(req.body, (err, createdSession) => {
         res.redirect('/sessions')
