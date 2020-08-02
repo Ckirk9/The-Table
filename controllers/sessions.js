@@ -39,6 +39,7 @@ router.get('/new', (req, res) => {
     res.render('sessions/new.ejs')
 })
 
+
 // path to show page
 router.get('/:id', (req, res) => {
     Session.findById(req.params.id, (err, foundSession) => {
@@ -47,6 +48,7 @@ router.get('/:id', (req, res) => {
         })
     })
 })
+
 
 router.post('/', (req, res) => {
     Session.create(req.body, (err, createdSession) => {
