@@ -8,13 +8,13 @@
 <body>
     <h1>Edit <%= campaign.name %> </h1>
     <form action="/campaigns" method="POST">
-        Name: <input type="text" name="name"><br />
-        Dungeon Master: <input type="text" name="dungeonMaster"><br />
-        Players: <input type="text" name="players"><br />
-        Open Slots: <input type="text" name="openSlots"><br />
-        Start Date: <input type="text" name="startDate"><br />
-        Description: <input type="text" name="description"><br />
-        <input type="submit" value="New Campaign">
+        Name: <input type="text" name="name" value="<%= campaign.name %>" ><br />
+        Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> "><br />
+        Players: <input type="text" name="players" value="<%= campaign.players %> "><br />
+        Open Slots: <input type="text" name="openSlots" value="<%= campaign.openSlots %> "><br />
+        Start Date: <input type="text" name="startDate" value="<%= campaign.startDate %> "><br />
+        Description: <input type="text" name="description" value="<%= campaign.description %> "><br />
+        <input type="submit" value="Edit Campaign">
     </form>
     <nav>
         <ul>
