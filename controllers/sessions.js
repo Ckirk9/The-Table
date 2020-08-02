@@ -20,6 +20,13 @@ router.get('/:id/edit', (req, res) => {
     })
 })
 
+// path to veiw edited session 
+router.put('/:id', (req, res) => {
+    Session.findByIdAndUpdate(req.params.id, req.body, () => {
+        res.redirect('/sessions')
+    })
+})
+
 // path to delete
 router.delete('/:id', (req, res) =>{
     Session.findByIdAndDelete(req.param.id, () => {

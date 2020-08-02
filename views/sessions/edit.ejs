@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Edit Sessions</title>
+	</head>
+	<body>
+		<header>
+			<h1>Edit <%= session.title %></h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/sessions">Sessions Index</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h2>Session Details:</h2>
+			<form action="/sessions/<%= session._id %>?_method=PUT" method="post">
+				<input type="text" name="title" value="<%= session.title %>"/><br/>
+                <input type="date" name="sessionDate" value="<%= session.sessionDate %>"/><br/>
+                <input type="text" name="author" value="<%= session.author %>"/><br/>
+				<textarea name="body"><%= session.body %></textarea><br/>
+				<input type="submit" value="Update Session"/>
+			</form>
+		</main>
+	</body>
+</html>
