@@ -30,6 +30,15 @@ router.post('/', (req,res) => {
     })
 })
 
+// EDIT 
+router.get('/:id/edit', (req, res) => {
+    Campaign.findById(req.params.id, (err, foundCampaign)=>{
+        res.render('campaigns/edit.ejs', {
+            campaign: foundCampaign
+        })
+    })
+})
+
 // SHOW
 router.get('/:id', (req,res) => {
     Campaign.findById(req.params.id, (err, foundCampaign) => {
