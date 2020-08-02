@@ -4,7 +4,11 @@ const Session = require('../models/session')
 
 // path to sessions index
 router.get('/', (req, res) => {
-    res.render('sessions/index.ejs')
+    Session.find({}, (err, foundSessions) => {
+        res.render('sessions/index.ejs', {
+            sessions: foundSessions
+        })
+    })
 }) 
 
 // path to sessions new
