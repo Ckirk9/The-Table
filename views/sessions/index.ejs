@@ -15,6 +15,14 @@
             <li>
                 <a href="/sessions/new">Create a new Session</a>
             </li>
+            <br/>
+            <h4>List of Sessions</h4>
+		<ul>
+			<% sessions.forEach(session => { %>
+				<li>
+					<a href="/sessions/<%= session._id %>"><%= session.title %></a>
+				</li>
+			<% }) %>
         </ul>
     </nav>
 </body>
