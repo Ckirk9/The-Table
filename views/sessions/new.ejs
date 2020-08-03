@@ -24,7 +24,7 @@
             </nav>
         </header>
         <main>
-            <form action="/sessions" method="post">
+            <form action="/sessions/<%= campaign._id %> " method="post">
                 Title: <input type="text" placeholder="Session Title" name="title" /><br/>
                 Session Date: <input type="date" name="sessionDate" /><br/>
                 Session Author: <input type="text" placeholder="Your Name" name="author" /><br/>

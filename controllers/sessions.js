@@ -55,10 +55,16 @@ router.get('/:id', (req, res) => {
     })
 })
 
-
-router.post('/', (req, res) => {
+// create route
+router.post('/:id', (req, res) => {
     Session.create(req.body, (err, createdSession) => {
-        res.redirect('/sessions')
+        createdSession.campaign = req.params.id
+        Campaign.findById(req.params.id, (err, foundCampaign) => {
+            foundCampaign.sessions.push(createdSession)
+            foundCampaign.save((err, savedCampaign) => {
+                res.redirect('/campaigns/' + req.params.id)
+            })
+        })
     })
 })
 
