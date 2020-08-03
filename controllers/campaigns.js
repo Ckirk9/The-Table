@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 const Campaign = require('../models/campaign')
 const Session = require('../models/session') //needed for show page
+const mongoose = require('mongoose')
 //const methodOverride = require('method-override')
 
 

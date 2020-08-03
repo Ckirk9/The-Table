@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Session = require('../models/session')
+const Campaign = require('../models/campaign')
 
 // path to sessions index
 router.get('/', (req, res) => {
@@ -35,8 +36,13 @@ router.delete('/:id', (req, res) =>{
 })
 
 // path to sessions new
-router.get('/new', (req, res) => {
-    res.render('sessions/new.ejs')
+router.get('/new/:id', (req, res) => {
+    Campaign.findById(req.params.id, req.body, (err, foundCampaign) => {
+        if (err) {console.log(err)}
+        res.render('sessions/new.ejs', {
+            campaign: foundCampaign
+        })
+    })
 })
 
 
