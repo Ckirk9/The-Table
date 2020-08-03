@@ -26,10 +26,10 @@
 		<main>
 			<h2>Session Details:</h2>
 			<form action="/sessions/<%= session._id %>?_method=PUT" method="post">
-				<input type="text" name="title" value="<%= session.title %>"/><br/>
-                <input type="date" name="sessionDate" value="<%= session.sessionDate %>"/><br/>
-                <input type="text" name="author" value="<%= session.author %>"/><br/>
-				<textarea name="body"><%= session.body %></textarea><br/>
+				Title: <input type="text" name="title" value="<%= session.title %>"/><br/>
+                Session Date: <input type="date" name="sessionDate" value="<%= session.sessionDate %>"/><br/>
+                Session Author: <input type="text" name="author" value="<%= session.author %>"/><br/>
+				Summary: <textarea name="body"><%= session.body %></textarea><br/>
 				<input type="submit" value="Update Session"/>
 			</form>
 		</main>
