@@ -29,7 +29,7 @@ router.put('/:id', (req, res) => {
 
 // path to delete
 router.delete('/:id', (req, res) =>{
-    Session.findByIdAndDelete(req.param.id, () => {
+    Session.findByIdAndDelete(req.params.id, () => {
         res.redirect('/sessions')
     })
 })
