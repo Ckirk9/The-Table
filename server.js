@@ -21,7 +21,6 @@ db.on('connected', () => console.log(`Mongoose connected to ${connectionString}`
 db.on('disconnected', () => console.log('Mongoose disconnected'))
 db.on('error', (err) => console.log('Mongoose error', err))
 
-
 //middleware
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
@@ -30,6 +29,8 @@ app.use(methodOverride('_method'))
 // route for sessions
 app.use('/sessions', sessionsController)
 
+
+// routes
 
 // route for campaign
 app.use('/campaigns', campaignsController)
