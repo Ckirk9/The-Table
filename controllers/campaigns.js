@@ -47,9 +47,18 @@ router.post('/:id', (req,res) => {
 
 // DELETE
 router.delete('/:id', (req,res) => {
-    Campaign.findByIdAndDelete(req.params.id, () => {
+    Campaign.findByIdAndDelete(req.params.id, (err, deletedCampaign) => {
         //console.log("In Deleter")
-        res.redirect('/campaigns')
+        Session.deleteMany({
+            _id: {
+                $in: deletedCampaign.sessions
+            }
+        }, (err, data) => {
+            console.log(err)
+            res.redirect('/campaigns')
+        })
+
+        
     })
 })
 
