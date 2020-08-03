@@ -21,17 +21,20 @@
             <li>
                 <a href="/campaigns/<%= campaign._id %>/edit">Edit this Campaign</a>
             </li>
+            <li>
+                <a href="/sessions/new/<%= campaign._id %> ">Add a Session to the Campaign</a>
+            </li>
         </ul>
     </nav>
     <h1><%= campaign.name %></h1>
     <h3>Open Slots: <%= campaign.openSlots %></h3>
     <h3>Dungeon Master: <%= campaign.dungeonMaster %></h3>
-    <h4>Players:<%= campaign.players %></h4>
+    <h4>Players: <%= campaign.players %></h4>
     <h4>Start Date: <%= campaign.startDate %></h4>
     <p><%= campaign.description %></p>
     <h4>Session Logs: </h4>
     <ul>
-        <% sessions.forEach(session => { // if (session.campaign === campaign._id)%>
+        <% campaign.sessions.forEach(session => { %>
             <li>
                 <a href="/sessions/<%= session._id %>"><%= session.title %></a>
             </li>

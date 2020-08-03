@@ -15,7 +15,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/">Campaigns</a>
+                    <a href="/campaigns">Campaigns</a>
                 </li>
                 <li>
                     <a href="/sessions">Sessions Index</a>
@@ -26,6 +26,11 @@
     <main>
         <section>
             <%=session.body%>
+        </section>
+        <br/> 
+        <section>
+            Campaign: <%= campaign.name %>
+            <a href="/campaigns/<%= campaign._id %> "><%= campaign.name %></a>
         </section>
         <br/>
         <section>
