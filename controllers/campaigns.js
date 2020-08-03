@@ -56,7 +56,7 @@ router.delete('/:id', (req,res) => {
 // SHOW
 router.get('/:id', (req,res) => {
     Campaign.findById(req.params.id) 
-    .populate({path: 'sessions'})
+    .populate({path: 'sessions'}) //maybe need to add "match"
     .exec((err, foundCampaign) => {
         //Session.find({}, (err, foundSessions) => {
         if (err) {console.log(err)}
