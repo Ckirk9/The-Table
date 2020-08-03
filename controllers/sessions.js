@@ -61,17 +61,26 @@ router.get('/new/:id', (req, res) => {
 // })
 
 // path to show page
+// router.get('/:id', (req, res) => {
+//     Session.findById(req.params.id)
+//     .populate({path: 'campaign'})
+//     .exec((err, foundSession) => {
+//         if (err) {console.log(err)}
+//         res.render('sessions/show.ejs', {
+//             session: foundSession
+//         })
+//     })
+// })
 router.get('/:id', (req, res) => {
-    Session.findById(req.params.id)
-    .populate({path: 'campaign'})
-    .exec((err, foundSession) => {
-        if (err) {console.log(err)}
-        res.render('sessions/show.ejs', {
-            session: foundSession
+    Session.findById(req.params.id, req.body, (err, foundSession) => {
+        Campaign.findById(foundSession.campaign, (err, foundCampaign) => {
+            res.render('sessions/show.ejs', {
+                session: foundSession,
+                campaign: foundCampaign
+            })
         })
     })
 })
-
 // create route
 // router.post('/:id', (req, res) => {
 //     Session.create(req.body, (err, createdSession) => {
