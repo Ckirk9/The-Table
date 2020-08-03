@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    
     <title>Campaigns Show Page</title>
 </head>
 <body>
@@ -17,21 +21,31 @@
             <li>
                 <a href="/campaigns/<%= campaign._id %>/edit">Edit this Campaign</a>
             </li>
+            <li>
+                <a href="/sessions/new/<%= campaign._id %> ">Add a Session to the Campaign</a>
+            </li>
         </ul>
     </nav>
     <h1><%= campaign.name %></h1>
-    <h3>Open Slot: <%= campaign.openSlots %></h3>
+    <h3>Open Slots: <%= campaign.openSlots %></h3>
     <h3>Dungeon Master: <%= campaign.dungeonMaster %></h3>
-    <h4>Players:<%= campaign.players %></h4>
+    <h4>Players: <%= campaign.players %></h4>
     <h4>Start Date: <%= campaign.startDate %></h4>
     <p><%= campaign.description %></p>
     <h4>Session Logs: </h4>
     <ul>
-        <% sessions.forEach(session => { // if (session.campaign === campaign._id)%>
+        <% campaign.sessions.forEach(session => { %>
             <li>
                 <a href="/sessions/<%= session._id %>"><%= session.title %></a>
             </li>
         <% }) %>
     </ul>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
+
 </body>
+
 </html>

@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    
     <title>Show Sessions</title>
 </head>
 <body>
@@ -11,9 +15,9 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/">Campaigns</a>
+                    <a href="/campaigns">Campaigns</a>
                 </li>
-                 <li>
+                <li>
                     <a href="/sessions">Sessions Index</a>
                 </li>
             </ul>
@@ -22,6 +26,11 @@
     <main>
         <section>
             <%=session.body%>
+        </section>
+        <br/> 
+        <section>
+            Campaign: <%= campaign.name %>
+            <a href="/campaigns/<%= campaign._id %> "><%= campaign.name %></a>
         </section>
         <br/>
         <section>
@@ -33,5 +42,11 @@
 				<a href="/sessions/<%=session._id%>/edit">Edit</a>
         </section>
     </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
+
 </body>
 </html>

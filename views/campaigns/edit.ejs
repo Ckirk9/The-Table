@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    
     <title>Edit Campaign</title>
 </head>
 <body>
@@ -13,8 +17,8 @@
         Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> "><br />
         Players: <input type="text" name="players" value="<%= campaign.players %> "><br />
         Open Slots: <input type="text" name="openSlots" value="<%= campaign.openSlots %> "><br />
-        Start Date: <input type="text" name="startDate" value="<%= campaign.startDate %> "><br />
-        Description: <input type="text" name="description" value="<%= campaign.description %> "><br />
+        Start Date: <input type="date" name="startDate" value="<%= campaign.startDate %> "><br />
+        Description: <textarea name="description"><%= campaign.description %></textarea><br />
         <input type="submit" value="Edit Campaign">
     </form>
     <p>Delete Campaign. Careful, cannot be undone!</p>
@@ -31,5 +35,11 @@
             </li>
         </ul>
     </nav>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
+
 </body>
 </html>

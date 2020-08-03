@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 const Campaign = require('../models/campaign')
 const Session = require('../models/session') //needed for show page
+const mongoose = require('mongoose')
 //const methodOverride = require('method-override')
 
 
@@ -54,12 +55,14 @@ router.delete('/:id', (req,res) => {
 
 // SHOW
 router.get('/:id', (req,res) => {
-    Campaign.findById(req.params.id, (err, foundCampaign) => {
-        Session.find({}, (err, foundSessions) => {
-            res.render('campaigns/show.ejs', {
-                campaign: foundCampaign,
-                sessions: foundSessions
-            })
+    Campaign.findById(req.params.id) 
+    .populate({path: 'sessions'}) //maybe need to add "match"
+    .exec((err, foundCampaign) => {
+        //Session.find({}, (err, foundSessions) => {
+        if (err) {console.log(err)}
+        res.render('campaigns/show.ejs', {
+            campaign: foundCampaign,
+            //sessions: foundSessions
         })
     })
 })
