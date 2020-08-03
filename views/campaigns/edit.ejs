@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Campaign</title>
+</head>
+<body>
+    <h1>Edit <%= campaign.name %> </h1>
+    <form action="/campaigns/<%= campaign._id %>" method="POST"> 
+        <!-- should this be a PUT? -->
+        Name: <input type="text" name="name" value="<%= campaign.name %>" ><br />
+        Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> "><br />
+        Players: <input type="text" name="players" value="<%= campaign.players %> "><br />
+        Open Slots: <input type="text" name="openSlots" value="<%= campaign.openSlots %> "><br />
+        Start Date: <input type="text" name="startDate" value="<%= campaign.startDate %> "><br />
+        Description: <input type="text" name="description" value="<%= campaign.description %> "><br />
+        <input type="submit" value="Edit Campaign">
+    </form>
+    <p>Delete Campaign. Careful, cannot be undone!</p>
+    <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/campaigns">All Campaigns</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>
