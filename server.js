@@ -6,6 +6,7 @@ const methodOverride = require('method-override')
 const sessionsController = require('./controllers/sessions.js')
 const campaignsController = require('./controllers/campaigns.js')
 
+
 //DB connection
 const connectionString = 'mongodb://localhost/the-table'
 const db = mongoose.connection
@@ -24,14 +25,15 @@ db.on('error', (err) => console.log('Mongoose error', err))
 //middleware
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
+// css 
+app.use(express.static(__dirname + '/public/'));
 
 
+// Session Routes 
 // route for sessions
 app.use('/sessions', sessionsController)
 
-
-// routes
-
+// Campaign Routes
 // route for campaign
 app.use('/campaigns', campaignsController)
 
