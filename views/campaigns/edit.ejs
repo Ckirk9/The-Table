@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Edit <%= campaign.name %> </h1>
-    <form action="/campaigns" method="POST">
+    <form action="/campaigns/<%= campaign._id %>" method="POST">
         Name: <input type="text" name="name" value="<%= campaign.name %>" ><br />
         Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> "><br />
         Players: <input type="text" name="players" value="<%= campaign.players %> "><br />
