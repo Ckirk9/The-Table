@@ -44,6 +44,14 @@ router.post('/:id', (req,res) => {
     })
 })
 
+// DELETE
+router.delete('/:id', (req,res) => {
+    Campaign.findByIdAndDelete(req.params.id, () => {
+        //console.log("In Deleter")
+        res.redirect('/campaigns')
+    })
+})
+
 // SHOW
 router.get('/:id', (req,res) => {
     Campaign.findById(req.params.id, (err, foundCampaign) => {
