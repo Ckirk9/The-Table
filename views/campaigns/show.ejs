@@ -3,31 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- this is for Bootstrap 5 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <!-- this is for Material Design for Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
     <link rel="stylesheet" href="css/styles.css">
     
-    <title>The Table Homepage</title>
+    <title>Campaigns Show Page</title>
 </head>
 <body>
-    <h1>Welcome to The Table</h1>
     <nav>
         <ul>
             <li>
-                <a href="/campaigns">Campaigns</a>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/campaigns/new">New Campaign</a>
+            </li>
+            <li>
+                <a href="/campaigns/<%= campaign._id %>/edit">Edit this Campaign</a>
             </li>
         </ul>
     </nav>
-
+    <h1><%= campaign.name %></h1>
+    <h3>Open Slots: <%= campaign.openSlots %></h3>
+    <h3>Dungeon Master: <%= campaign.dungeonMaster %></h3>
+    <h4>Players:<%= campaign.players %></h4>
+    <h4>Start Date: <%= campaign.startDate %></h4>
+    <p><%= campaign.description %></p>
+    <h4>Session Logs: </h4>
+    <ul>
+        <% sessions.forEach(session => { // if (session.campaign === campaign._id)%>
+            <li>
+                <a href="/sessions/<%= session._id %>"><%= session.title %></a>
+            </li>
+        <% }) %>
+    </ul>
 
     <!-- Scripts -->
-    <!-- this is for Popper, which is neccesary for some of the features of Bootstrap to work correctly -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <!-- this is the cdn for bootstrap so we don't have to include the files in the project; it goes to get them from the online server instead -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-    <!-- this is the same things but for Material Design for Bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
 
 </body>
