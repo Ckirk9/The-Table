@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Sessions</title>
+</head>
+<body>
+    <header>
+        <h1>session.title</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Campaigns</a>
+                </li>
+                <li>
+                    <a href="/sessions">Sessions Index</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <%=session.body%>
+        </section>
+        <br/>
+        <section>
+            <form action="/sessions/<%=session._id%>?_method=DELETE" method="post">
+                <input type="submit" value="Delete Session"/>
+            </form>
+        </section>
+        <section>
+				<a href="/sessions/<%=session._id%>/edit">Edit</a>
+        </section>
+    </main>
+</body>
+</html>

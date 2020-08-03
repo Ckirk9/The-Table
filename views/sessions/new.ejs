@@ -22,7 +22,11 @@
         </header>
         <main>
             <form action="/sessions" method="post">
-                <input type="text" name="title" /><br/>
+                <input type="text" placeholder="Session Title" name="title" /><br/>
+                <input type="date" name="sessionDate" /><br/>
+                <input type="text" placeholder="Your Name" name="author" /><br/>
+                <textarea placeholder="Summary of Session goes here" name="body"></textarea><br/>
+                <input type="submit" value="Publish Session"/><br/>
                 <input type="date" name="date" /><br/>
                 <input type="text" name="name" /><br/>
                 <input type="submit" value="Publish Session Summary"/><br/>

@@ -1,13 +1,37 @@
 // require statements
 const express = require('express')
 const app = express()
+const mongoose = require('mongoose')
+const methodOverride = require('method-override')
+const sessionsController = require('./controllers/sessions.js')
 const campaignsController = require('./controllers/campaigns.js')
+
+//DB connection
+const connectionString = 'mongodb://localhost/the-table'
+const db = mongoose.connection
+
+mongoose.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+})
+
+db.on('connected', () => console.log(`Mongoose connected to ${connectionString}`))
+db.on('disconnected', () => console.log('Mongoose disconnected'))
+db.on('error', (err) => console.log('Mongoose error', err))
 
 // I need these but don't know how to import them correctly???
 // import * as mdb from 'mdb-ui-kit'; 
 // @import '~mdb-ui-kit/css/mdb.min.css'; 
 
-// middleware
+//middleware
+app.use(express.urlencoded({ extended: false }))
+app.use(methodOverride('_method'))
+
+
+// route for sessions
+app.use('/sessions', sessionsController)
 
 
 // routes
@@ -24,7 +48,7 @@ app.get('/', (req, res) => {
 
 
 //listen
-const PORT = 3000
+const PORT = 4000
 app.listen(PORT, () => {
-    console.log('listening')
+    console.log('listening on port: ' + PORT)
 })
