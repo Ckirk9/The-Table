@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Campaign = require('./campaign')
 
 const sessionSchema = new mongoose.Schema ({
     author: {type: String, required: true },
@@ -11,7 +12,6 @@ const sessionSchema = new mongoose.Schema ({
         ref: 'Campaign',
         required: true
     }]
-
 })
 
 const Session = mongoose.model('Session', sessionSchema)

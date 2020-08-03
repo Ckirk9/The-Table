@@ -28,6 +28,12 @@
             <%=session.body%>
         </section>
         <br/>
+        <% console.log(session.title)
+        console.log(session.campaign) %> 
+        <section>
+            Campaign: <%= session.campaign %>
+        </section>
+        <br/>
         <section>
             <form action="/sessions/<%=session._id%>?_method=DELETE" method="post">
                 <input type="submit" value="Delete Session"/>

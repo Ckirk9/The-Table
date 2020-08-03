@@ -55,12 +55,14 @@ router.delete('/:id', (req,res) => {
 
 // SHOW
 router.get('/:id', (req,res) => {
-    Campaign.findById(req.params.id, (err, foundCampaign) => {
-        Session.find({}, (err, foundSessions) => {
-            res.render('campaigns/show.ejs', {
-                campaign: foundCampaign,
-                sessions: foundSessions
-            })
+    Campaign.findById(req.params.id) 
+    .populate({path: 'sessions'})
+    .exec((err, foundCampaign) => {
+        //Session.find({}, (err, foundSessions) => {
+        if (err) {console.log(err)}
+        res.render('campaigns/show.ejs', {
+            campaign: foundCampaign,
+            //sessions: foundSessions
         })
     })
 })
