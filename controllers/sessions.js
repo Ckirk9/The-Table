@@ -29,10 +29,20 @@ router.put('/:id', (req, res) => {
 })
 
 // path to delete
-router.delete('/:id', (req, res) =>{
-    Session.findByIdAndDelete(req.params.id, () => {
-        res.redirect('/sessions')
-    })
+router.delete('/:id', async (req, res) => {
+    const foundSession = await Session.findById(req.params.id)
+    //console.log("found session: " + foundSession)
+    const foundCampaign = await Campaign.findById(foundSession.campaign)
+    //console.log("found campaign: " + foundCampaign)
+    for (let i = 0; i < foundCampaign.sessions.length; i++) {
+        if (foundCampaign.sessions[i] === foundSession._id) {
+            foundCampaign.sessions.splice(i, 1)
+        }
+    }
+    await foundCampaign.save() 
+    //console.log("saved campaign: " + foundCampaign)
+    const deletedSession = await Session.findByIdAndDelete(req.params.id)
+    res.redirect('/sessions')
 })
 
 // path to sessions new
@@ -45,6 +55,7 @@ router.get('/new/:id', (req, res) => {
     })
 })
 
+//SHOW
 router.get('/:id', (req, res) => {
     Session.findById(req.params.id, req.body, (err, foundSession) => {
         Campaign.findById(foundSession.campaign, (err, foundCampaign) => {
@@ -63,7 +74,12 @@ router.post('/:id', async (req, res) => {
         req.body.campaign = req.params.id
         const createdSession = await Session.create(req.body)
         const foundCampaign = await Campaign.findById(req.params.id)
+        console.log(foundCampaign)
         await foundCampaign.sessions.push(createdSession._id)
+        console.log(foundCampaign)
+        await foundCampaign.save() 
+        console.log("saved campaign: " + foundCampaign)
+        res.redirect('/campaigns/' + req.params.id)
         foundCampaign.save((err, savedCampaign) => {
             res.redirect('/campaigns/' + req.params.id)
         })
