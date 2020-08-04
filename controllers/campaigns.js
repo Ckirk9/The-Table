@@ -37,14 +37,32 @@ router.post('/filter', (req,res) => {
 })
 
 // FILTER (get)
-router.get('/filter/:id', (req, res) => {
+router.get('/filter/:id', async (req, res) => {
     const filterString = req.params.id
-    Campaign.find({}, (err,foundCampaigns) => (
-        res.render('campaigns/filter.ejs', {
-            campaigns: foundCampaigns,
-            filterString: filterString
-        })
-    ))
+    console.log('filter string')
+    console.log(filterString)
+    let filterObject = {}
+    let filterArray = filterString.split('&')
+    console.log('filter array 1')
+    console.log(filterArray)
+    filterArray.forEach(filterProperty => {
+        filterProperty = filterProperty.split('=')
+        filterObject[filterProperty[0]] = filterProperty[1]
+    })
+    console.log('filter array 2')
+    console.log(filterArray)
+    console.log('filter object')
+    console.log(filterObject)
+    // Campaign.find({filterObject}, (err,foundCampaigns) => (
+    //     res.render('campaigns/filter.ejs', {
+    //         campaigns: foundCampaigns,
+    //     })
+    // ))
+    const foundCampaigns = await Campaign.find({filterObject}).exec() //THIS LINE NOT WORKING
+    console.log(foundCampaigns)
+    res.render('campaigns/filter.ejs', {
+        campaigns: foundCampaigns,
+    })
 })
 
 // NEW

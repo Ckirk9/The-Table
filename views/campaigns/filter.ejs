@@ -23,9 +23,8 @@
     </nav>
     <ul>
         <% campaigns.forEach(campaign => { %>
-        <% if (campaign.dungeonMaster === filterString) { %>
             <li><a href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a></li>
-        <% }}) %>
+        <% }) %>
     </ul>
 
     <!-- Scripts -->
