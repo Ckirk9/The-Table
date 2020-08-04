@@ -58,7 +58,7 @@ router.get('/filter/:id', async (req, res) => {
     //         campaigns: foundCampaigns,
     //     })
     // ))
-    const foundCampaigns = await Campaign.find({filterObject}).exec() //THIS LINE NOT WORKING
+    const foundCampaigns = await Campaign.find(filterObject)//.exec() //THIS LINE NOT WORKING
     console.log(foundCampaigns)
     res.render('campaigns/filter.ejs', {
         campaigns: foundCampaigns,
