@@ -21,6 +21,17 @@
             </li>
         </ul>
     </nav>
+    <div class="filter">
+        <form action="/campaigns/filter" method="POST">
+            Name: <input type="text" name="name"><br />
+            Dungeon Master: <input type="text" name="dungeonMaster"><br />
+            Players: <input type="text" name="players"><br />
+            Open Slots: <input type="number" name="openSlots" max:6><br /> 
+            Start Date: <input type="date" name="startDate"><br />
+            Description: <textarea name="description" placeholder="Description"></textarea><br>
+            <input type="submit" value="Filter Campaigns">
+        </form>
+    </div>
     <ul>
         <% campaigns.forEach(campaign => { %>
             <li><a href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a></li>

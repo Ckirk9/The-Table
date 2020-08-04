@@ -18,6 +18,23 @@ router.get('/', (req, res) => {
 })
 
 // FILTER (post)
+router.post('/filter', (req,res) => {
+    console.log(req.body)
+    const filterObject = req.body 
+    let filterString = ''
+    for (const property in filterObject) {
+        if (filterObject[property]) {
+            console.log(`${property}: ${filterObject[property]}`)
+            filterString = filterString + property + '=' + filterObject[property] + '&'
+        }
+    }
+    if (filterString) {
+        filterString = filterString.substring(0, filterString.length - 1)
+        res.redirect('/campaigns/filter/' + filterString) //placeholder redirect
+    } else {
+        res.redirect('/campaigns/index')
+    }
+})
 
 // FILTER (get)
 router.get('/filter/:id', (req, res) => {
