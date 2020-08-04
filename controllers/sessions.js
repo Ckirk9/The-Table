@@ -74,15 +74,15 @@ router.post('/:id', async (req, res) => {
         req.body.campaign = req.params.id
         const createdSession = await Session.create(req.body)
         const foundCampaign = await Campaign.findById(req.params.id)
-        console.log(foundCampaign)
+        //console.log(foundCampaign)
         await foundCampaign.sessions.push(createdSession._id)
-        console.log(foundCampaign)
+        //console.log(foundCampaign)
         await foundCampaign.save() 
-        console.log("saved campaign: " + foundCampaign)
+        //console.log("saved campaign: " + foundCampaign)
         res.redirect('/campaigns/' + req.params.id)
-        foundCampaign.save((err, savedCampaign) => {
-            res.redirect('/campaigns/' + req.params.id)
-        })
+        await foundCampaign.save() 
+        //console.log("saved campaign: " + foundCampaign)
+        res.redirect('/campaigns/' + req.params.id)
     } catch (err) {
         console.log(err)
     }

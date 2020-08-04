@@ -17,6 +17,54 @@ router.get('/', (req, res) => {
     ))
 })
 
+// FILTER (post)
+router.post('/filter', (req,res) => {
+    console.log(req.body)
+    const filterObject = req.body 
+    let filterString = ''
+    for (const property in filterObject) {
+        if (filterObject[property]) {
+            console.log(`${property}: ${filterObject[property]}`)
+            filterString = filterString + property + '=' + filterObject[property] + '&'
+        }
+    }
+    if (filterString) {
+        filterString = filterString.substring(0, filterString.length - 1)
+        res.redirect('/campaigns/filter/' + filterString) //placeholder redirect
+    } else {
+        res.redirect('/campaigns/index')
+    }
+})
+
+// FILTER (get)
+router.get('/filter/:id', async (req, res) => {
+    const filterString = req.params.id
+    console.log('filter string')
+    console.log(filterString)
+    let filterObject = {}
+    let filterArray = filterString.split('&')
+    console.log('filter array 1')
+    console.log(filterArray)
+    filterArray.forEach(filterProperty => {
+        filterProperty = filterProperty.split('=')
+        filterObject[filterProperty[0]] = filterProperty[1]
+    })
+    console.log('filter array 2')
+    console.log(filterArray)
+    console.log('filter object')
+    console.log(filterObject)
+    // Campaign.find({filterObject}, (err,foundCampaigns) => (
+    //     res.render('campaigns/filter.ejs', {
+    //         campaigns: foundCampaigns,
+    //     })
+    // ))
+    const foundCampaigns = await Campaign.find(filterObject)//.exec() //THIS LINE NOT WORKING
+    console.log(foundCampaigns)
+    res.render('campaigns/filter.ejs', {
+        campaigns: foundCampaigns,
+    })
+})
+
 // NEW
 router.get('/new', (req, res) => {
     res.render('campaigns/new.ejs')
