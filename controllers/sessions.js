@@ -55,7 +55,6 @@ router.get('/new/:id', (req, res) => {
     })
 })
 
-
 //SHOW
 router.get('/:id', (req, res) => {
     Session.findById(req.params.id, req.body, (err, foundSession) => {
@@ -68,21 +67,22 @@ router.get('/:id', (req, res) => {
     })
 })
 
-//create
+// create route
+
 router.post('/:id', async (req, res) => {
     try {
-        //req.body.body = "pizza"
         req.body.campaign = req.params.id
         const createdSession = await Session.create(req.body)
-        console.log(createdSession)
         const foundCampaign = await Campaign.findById(req.params.id)
         console.log(foundCampaign)
         await foundCampaign.sessions.push(createdSession._id)
         console.log(foundCampaign)
-        //THIS IS BROKEN!!!
         await foundCampaign.save() 
         console.log("saved campaign: " + foundCampaign)
         res.redirect('/campaigns/' + req.params.id)
+        foundCampaign.save((err, savedCampaign) => {
+            res.redirect('/campaigns/' + req.params.id)
+        })
     } catch (err) {
         console.log(err)
     }
