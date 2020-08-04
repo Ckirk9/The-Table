@@ -31,6 +31,15 @@ router.post('/', (req,res) => {
 // EDIT 
 router.get('/:id/edit', (req, res) => {
     Campaign.findById(req.params.id, (err, foundCampaign) => {
+        // must be in this format "1990-01-21"
+        const rawDate = foundCampaign.startDate 
+        const year = rawDate.getFullYear()
+        const month = rawDate.getMonth()
+        const day = rawDate.getDay()
+        const prettyDate = (year + "-" + month + "-" + day)
+        console.log(prettyDate)
+        foundCampaign.startDate = prettyDate
+        console.log(foundCampaign)
         res.render('campaigns/edit.ejs', {
             campaign: foundCampaign
         })
@@ -45,7 +54,6 @@ router.post('/:id', (req,res) => {
 
 // DELETE
 router.delete('/:id', (req,res) => {
-
     Campaign.findByIdAndDelete(req.params.id, (err, deletedCampaign) => {
         //console.log("In Deleter")
         Session.deleteMany({
