@@ -13,12 +13,12 @@
     <h1>Edit <%= campaign.name %> </h1>
     <form action="/campaigns/<%= campaign._id %>" method="POST"> 
         <!-- should this be a PUT? -->
-        Name: <input type="text" name="name" value="<%= campaign.name %>" ><br />
-        Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> "><br />
-        Players: <input type="text" name="players" value="<%= campaign.players %> "><br />
-        Open Slots: <input type="text" name="openSlots" value="<%= campaign.openSlots %> "><br />
-        Start Date: <input type="date" name="startDate" value="<%= campaign.startDate %> "><br />
-        Description: <textarea name="description"><%= campaign.description %></textarea><br />
+        Name: <input type="text" name="name" value="<%= campaign.name %> " required ><br />
+        Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> " required><br />
+        Players: <input type="text" name="players" value="<%= campaign.players %> " required><br />
+        Open Slots: <input type="number" name="openSlots" value="<%= campaign.openSlots %> " required><br />
+        Start Date: <input type="date" name="startDate" value="<%= campaign.startDate %> " required><br />
+        Description: <textarea name="description" required><%= campaign.description %></textarea><br />
         <input type="submit" value="Edit Campaign">
     </form>
     <p>Delete Campaign. Careful, cannot be undone!</p>
