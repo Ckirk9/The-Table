@@ -17,6 +17,19 @@ router.get('/', (req, res) => {
     ))
 })
 
+// FILTER (post)
+
+// FILTER (get)
+router.get('/filter/:id', (req, res) => {
+    const filterString = req.params.id
+    Campaign.find({}, (err,foundCampaigns) => (
+        res.render('campaigns/filter.ejs', {
+            campaigns: foundCampaigns,
+            filterString: filterString
+        })
+    ))
+})
+
 // NEW
 router.get('/new', (req, res) => {
     res.render('campaigns/new.ejs')
