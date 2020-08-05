@@ -6,11 +6,12 @@
     <title>New Player!</title>
 </head>
 <body>
+    </nav>
     <h1>Welcome! Let's find out a little bit about you</h1>
     <form action="/players" method="POST">
         <!-- Need to make username unique -->
-        Username: <input type="text" name="name" required><br />
-        <textarea name="bio" placeholder="" required></textarea><br>
+        Username: <input type="text" name="username" required><br />
+        <textarea name="bio" placeholder="Your bio here" required></textarea><br>
         <input type="submit" value="Create Your New Profile!">
     </form>
 </body>

@@ -6,6 +6,7 @@ const methodOverride = require('method-override')
 const ejsLayouts = require('express-ejs-layouts')
 const sessionsController = require('./controllers/sessions.js')
 const campaignsController = require('./controllers/campaigns.js')
+const playersController = require('./controllers/players.js')
 
 
 //DB connection
@@ -40,6 +41,9 @@ app.use('/sessions', sessionsController)
 // Campaign Routes
 // route for campaign
 app.use('/campaigns', campaignsController)
+
+// Player Routes
+app.use('/players', playersController)
 
 // root route to homepage
 app.get('/', (req, res) => {

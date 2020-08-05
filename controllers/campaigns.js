@@ -10,12 +10,12 @@ const mongoose = require('mongoose')
 
 // INDEX
 router.get('/', (req, res) => {
-    Campaign.find({}, (err,foundCampaigns) => (
+    Campaign.find({}, (err,foundCampaigns) => {
         //console.log(foundCampaigns)
         res.render('campaigns/index', {
             campaigns: foundCampaigns
         })
-    ))
+    })
 })
 
 // FILTER (post)
