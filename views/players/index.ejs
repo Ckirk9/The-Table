@@ -7,6 +7,11 @@
 </head>
 <body>
 </nav>
-    <h1>Hey Y'all</h1>
+    <h1>Meet some of our wonderful members!</h1>
+    <ul>
+        <% players.forEach(player => { %>
+            <li><a href='/players/<%= player._id %>'><%= player.username %></a></li>
+        <% }) %>
+    </ul>
 </body>
 </html>
