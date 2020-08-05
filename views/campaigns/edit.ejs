@@ -1,45 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
-    
     <title>Edit Campaign</title>
 </head>
-<body>
-    <h1>Edit <%= campaign.name %> </h1>
+<!-- opening nav tag in the layout.ejs -->
+<ul>
+    <li>
+        <a href="/" class="link-dark">Home</a>
+    </li>
+    <li>
+        <a href="/campaigns" class="link-dark">All Campaigns</a>
+    </li>
+</ul>
+</nav>
+
+<h1 class="text-dark">Edit <%= campaign.name %> </h1>
     <form action="/campaigns/<%= campaign._id %>" method="POST"> 
         <!-- should this be a PUT? -->
-        Name: <input type="text" name="name" value="<%= campaign.name %>" ><br />
-        Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> "><br />
-        Players: <input type="text" name="players" value="<%= campaign.players %> "><br />
-        Open Slots: <input type="text" name="openSlots" value="<%= campaign.openSlots %> "><br />
-        Start Date: <input type="date" name="startDate" value="<%= campaign.startDate %> "><br />
-        Description: <textarea name="description"><%= campaign.description %></textarea><br />
+        Name: <input type="text" name="name" value="<%= campaign.name %> " required ><br />
+        Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> " required><br />
+        Players: <input type="text" name="players" value="<%= campaign.players %> " required><br />
+    Open Slots: <input type="number" name="openSlots" value="<%=campaign.openSlots%>" required><br />
+        Genre: <select name="genre" required>
+            <% const genreOptions = ["Fantasy", "Scifi", "Horror", "OSR", "Survival", "Other"]
+            genreOptions.forEach(genre => { 
+                let isSelected = (genre === campaign.genre) ? "selected" : ""   %>
+                <option value="<%= genre %>" <%=isSelected%> ><%= genre %></option>
+            <% }) %>  
+        </select><br />
+        Game System: <select name="gameSystem" required>
+            <% const gameSystemOptions = ['D&D', '3D', '4D'] 
+            gameSystemOptions.forEach(system => { 
+                let isSelected = (system === campaign.gameSystem) ? "selected" : "" %>
+                <option value="<%= system %>" <%=isSelected%> ><%= system %></option>
+            <% })%>
+        </select><br />
+        Difficulty: <select name="difficulty" required>
+            <% const difficultyOptions = ['Easy', 'Medium', 'Hard']
+            difficultyOptions.forEach(difficulty => { 
+                let isSelected = (difficulty === campaign.difficulty) ? "selected" : "" %>
+                <option value="<%= difficulty %>" <%=isSelected%> ><%= difficulty %></option>
+            <% }) %>
+        </select><br />
+        <% 
+            // must be in this format "1990-01-21"
+            const rawDate = campaign.startDate
+            const year = rawDate.getFullYear()
+            const month = rawDate.getMonth() + 1
+            let monthString = month.toString()
+            if (month < 10) {
+                monthString = '0' + month.toString()
+            }
+            const day = rawDate.getDay()
+            let dayString = day.toString()
+            if (day < 10) {
+                dayString = '0' + day.toString()
+            }
+        %> 
+        Start Date: <input type="date" name="startDate" value="<%= year %>-<%= monthString %>-<%= dayString %>" required><br />
+        Description: <textarea name="description" required><%= campaign.description %></textarea><br />
         <input type="submit" value="Edit Campaign">
     </form>
-    <p>Delete Campaign. Careful, cannot be undone!</p>
+    <p class="text-dark">Delete Campaign. Careful, cannot be undone!</p>
     <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
         <input type="submit" value="Delete">
     </form>
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/campaigns">All Campaigns</a>
-            </li>
-        </ul>
-    </nav>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
-
-</body>
-</html>

@@ -1,37 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
-    
     <title>Campaigns Index</title>
-</head>
-<body>
-    <h1>Campaigns</h1>
-    <nav>
+    <!-- opening nav tag in the layout.ejs -->
         <ul>
             <li>
-                <a href="/">Home</a>
+                <a href="/" class="link-dark">Home</a>
             </li>
             <li>
-                <a href="/campaigns/new">New Campaign</a>
+                <a href="/campaigns/new" class="link-dark">New Campaign</a>
             </li>
         </ul>
     </nav>
+    <h1 class="text-dark">Campaigns</h1>
+    <div class="filter">
+        <form action="/campaigns/filter" method="POST">
+            <!-- Name: <input type="text" name="name"><br /> -->
+            <!-- Dungeon Master: <input type="text" name="dungeonMaster"><br />
+            Players: <input type="text" name="players"><br /> -->
+            Has Open Slots: <input type="checkbox" name="openSlots"><br />  
+            Genre: <select name="genre">
+                <option value="" selected>Any</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Scifi">Scifi</option>
+                <option value="Horror">Horror</option>
+                <option value="OSR">OSR</option>
+                <option value="Survival">Survival</option>
+                <option value="Other">Other</option>
+            </select><br />
+            Game System: <select name="gameSystem">
+                <option value="" selected>Any</option>
+                <option value="D&D">D&D</option>
+                <option value="3D">3D</option>
+                <option value="4D">4D</option>
+            </select><br />
+            Difficulty: <select name="difficulty">
+                <option value="" selected>Any</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select><br />
+            <!-- Start Date: <input type="date" name="startDate"><br /> -->
+            <!-- Description: <textarea name="description" placeholder="Description"></textarea><br> -->
+            <input type="submit" value="Filter Campaigns">
+        </form>
+    </div>
     <ul>
         <% campaigns.forEach(campaign => { %>
             <li><a href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a></li>
         <% }) %>
     </ul>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
-    
-</body>
-
-</html>
