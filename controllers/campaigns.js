@@ -39,6 +39,9 @@ router.post('/filter', (req,res) => {
 // FILTER (get)
 router.get('/filter/:id', async (req, res) => {
     const filterString = req.params.id // MAKE SURE %20 IS CHANGED TO A SPACE
+    // const decodedFilterString = decodeURIComponent(filterString)
+    // console.log('decoded string')
+    // console.log(decodedFilterString)
     // console.log('filter string')
     // console.log(filterString)
     let filterObject = {}
