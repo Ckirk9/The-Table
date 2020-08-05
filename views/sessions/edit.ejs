@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
-		<link rel="stylesheet" href="css/styles.css" type="text/css">
-		
 		<title>Edit Sessions</title>
 	</head>
-	<body>
+
 		<header>
 			<h1>Edit <%= session.title %></h1>
 			<nav>
@@ -34,11 +25,18 @@
 			</form>
 		</main>
 
-		<!-- Scripts -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
-		
-	</body>
 
-</html>
+<main>
+	<h2>Session Details:</h2>
+	<form action="/sessions/<%= session._id %>?_method=PUT" method="post">
+			Title: <input type="text" name="title" value="<%= session.title %>"/>
+			<br/>
+			Session Date: <input type="date" name="sessionDate" value="<%= session.sessionDate %>"/>
+			<br/>
+			Session Author: <input type="text" name="author" value="<%= session.author %>">
+			<br/>
+			Summary: <textarea name="body"><%= session.body %></textarea>
+			<br/>
+			<input type="submit" value="Update Session"/>
+	</form>
+</main>
