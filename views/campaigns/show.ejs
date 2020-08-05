@@ -6,6 +6,9 @@
                 <a href="/" class="link-dark">Home</a>
             </li>
             <li>
+                <a href="/campaigns" class="link-dark">All Campaigns</a>
+            </li>
+            <li>
                 <a href="/campaigns/new" class="link-dark">New Campaign</a>
             </li>
             <li>
@@ -20,6 +23,9 @@
     <h1><%= campaign.name %></h1>
     <h3>Dungeon Master: <%= campaign.dungeonMaster %></h3>
     <h4>Players: <%= campaign.players %></h4>
+    <h4>Genre: <%= campaign.genre %> </h4>
+    <h4>Game System: <%= campaign.gameSystem %> </h4>
+    <h4>Difficulty: <%= campaign.difficulty %> </h4>
     <h4>Start Date: <%= campaign.startDate %></h4>
     <h3>Open Slots: <%= campaign.openSlots %></h3>
     <p><%= campaign.description %></p>

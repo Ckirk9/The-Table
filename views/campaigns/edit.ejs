@@ -14,12 +14,30 @@
 <h1 class="text-dark">Edit <%= campaign.name %> </h1>
     <form action="/campaigns/<%= campaign._id %>" method="POST"> 
         <!-- should this be a PUT? -->
-        Name: <input type="text" name="name" value="<%= campaign.name %>" ><br />
-        Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> "><br />
-        Players: <input type="text" name="players" value="<%= campaign.players %> "><br />
-        Open Slots: <input type="text" name="openSlots" value="<%= campaign.openSlots %> "><br />
-        Start Date: <input type="date" name="startDate" value="<%= campaign.startDate %> "><br />
-        Description: <textarea name="description"><%= campaign.description %></textarea><br />
+        Name: <input type="text" name="name" value="<%= campaign.name %> " required ><br />
+        Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> " required><br />
+        Players: <input type="text" name="players" value="<%= campaign.players %> " required><br />
+    Open Slots: <input type="number" name="openSlots" value="<%=campaign.openSlots%>" required><br />
+        Genre: <select name="genre" required>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Scifi">Scifi</option>
+            <option value="Horror">Horror</option>
+            <option value="OSR">OSR</option>
+            <option value="Survival">Survival</option>
+            <option value="Other">Other</option>
+        </select><br />
+        Game System: <select name="gameSystem" required>
+            <option value="D&D">D&D</option>
+            <option value="3D">3D</option>
+            <option value="4D">4D</option>
+        </select><br />
+        Difficulty: <select name="difficulty" required>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select><br />
+        Start Date: <input type="date" name="startDate" value="<%= campaign.startDate %> " required><br />
+        Description: <textarea name="description" required><%= campaign.description %></textarea><br />
         <input type="submit" value="Edit Campaign">
     </form>
     <p class="text-dark">Delete Campaign. Careful, cannot be undone!</p>

@@ -1,24 +1,41 @@
     <title>New Campaign</title>
 </head>
 <!-- opening nav tag in the layout.ejs -->
-        <ul>
-            <li>
-                <a href="/" class="link-dark">Home</a>
-            </li>
-            <li>
-                <a href="/campaigns" class="link-dark">All Campaigns</a>
-            </li>
-        </ul>
-    </nav>
+</form>
+    <ul>
+        <li>
+            <a href="/" class="link-dark">Home</a>
+        </li>
+        <li>
+            <a href="/campaigns" class="link-dark">All Campaigns</a>
+        </li>
+    </ul>
+</nav>
 
-    <h1>New Campaign</h1>
-        <form action="/campaigns" method="POST">
-            Name: <input type="text" name="name"><br />
-            Dungeon Master: <input type="text" name="dungeonMaster"><br />
-            Players: <input type="text" name="players"><br />
-            Open Slots: <input type="text" name="openSlots"><br />
-            Start Date: <input type="date" name="startDate"><br />
-            Description: <textarea name="description" placeholder="Description"></textarea><br>
-            <input type="submit" value="New Campaign">
-        </form>
-
+<h1 class="text-dark">New Campaign</h1>
+<form action="/campaigns" class="text-dark" method="POST">
+    Name: <input type="text" name="name" required><br />
+    Dungeon Master: <input type="text" name="dungeonMaster" required><br />
+    Players: <input type="text" name="players" required><br />
+    Open Slots: <input type="number" name="openSlots" required max:6><br /> 
+    Genre: <select name="genre" required>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Scifi">Scifi</option>
+        <option value="Horror">Horror</option>
+        <option value="OSR">OSR</option>
+        <option value="Survival">Survival</option>
+        <option value="Other">Other</option>
+    </select><br />
+    Game System: <select name="gameSystem" required>
+        <option value="D&D">D&D</option>
+        <option value="3D">3D</option>
+        <option value="4D">4D</option>
+    </select><br />
+    Difficulty: <select name="difficulty" required>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+    </select><br />
+    Start Date: <input type="date" name="startDate" required><br />
+    Description: <textarea name="description" placeholder="Description" required></textarea><br>
+    <input type="submit" value="Create Campaign">

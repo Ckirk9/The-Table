@@ -1,16 +1,26 @@
     <title>New Sessions</title>
 </head>
-<!-- opening nav tag in the layout.ejs -->
-    <h1>Create a new Session</h1>
-        <ul>
-            <li>
-                <a href="/" class="link-dark">Home</a>
-            </li>
-            <li>
-                <a href="/sessions" class="link-dark">Sessions Index</a>
-            </li>
-        </ul>
-</nav>
+<body>
+    <header>
+        <h1>Create a new Session</h1>
+            <nav>
+                <ul>
+                    <li>
+                    <a href="/" class="link-dark">New Session</a>
+                </li>>Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <form action="/sessions/<%= campaign._id %> " method="post">
+                Title: <input type="text" placeholder="Session Title" name="title" required/><br/>
+                Session Date: <input type="date" name="sessionDate" required /><br/>
+                Session Author: <input type="text" placeholder="Your Name" name="author" required/><br/>
+                Summary: <textarea placeholder="Summary of Session goes here" name="body" required></textarea><br/>
+                <input type="submit" value="Publish Session"/><br/>
+            </form>
+        </main>
 
 <main>
     <form action="/sessions/<%= campaign._id %> " method="post">
