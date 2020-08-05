@@ -19,8 +19,8 @@ router.get('/', (req, res) => {
 
 // FILTER (post)
 router.post('/filter', (req,res) => {
-    console.log(req.body)
-    const filterObject = req.body 
+    //console.log(req.body)
+    const filterObject = req.body
     let filterString = ''
     for (const property in filterObject) {
         if (filterObject[property]) {
@@ -30,7 +30,7 @@ router.post('/filter', (req,res) => {
     }
     if (filterString) {
         filterString = filterString.substring(0, filterString.length - 1)
-        res.redirect('/campaigns/filter/' + filterString) //placeholder redirect
+        res.redirect('/campaigns/filter/' + filterString) 
     } else {
         res.redirect('/campaigns/index')
     }
@@ -55,7 +55,13 @@ router.get('/filter/:id', async (req, res) => {
     // console.log('filter array 2')
     // console.log(filterArray)
     // console.log('filter object')
-    // console.log(filterObject)
+    console.log(filterObject)
+    if (filterObject.openSlots === "on") {
+        filterObject.openSlots = { $gte: 1 }
+    } else {
+        filterObject.openSlots = { $gte: 0 }
+    }
+    console.log(filterObject)
     const foundCampaigns = await Campaign.find(filterObject)
     // console.log(foundCampaigns)
     res.render('campaigns/filter.ejs', {
@@ -80,25 +86,26 @@ router.post('/', (req,res) => {
 router.get('/:id/edit', async (req, res) => {
     Campaign.findById(req.params.id, (err, foundCampaign) => {
         //must be in this format "1990-01-21"
-        const editableCampaign = foundCampaign
-        const rawDate = foundCampaign.startDate
-        const year = rawDate.getFullYear()
-        const month = rawDate.getMonth() + 1
-        let monthString = month.toString()
-        if (month < 10) {
-            monthString = '0' + month.toString()
-        }
-        const day = rawDate.getDay()
-        let dayString = day.toString()
-        if (day < 10) {
-            dayString = '0' + day.toString()
-        } 
-        const prettyDate = (year + "-" + monthString + "-" + dayString)
-        console.log(prettyDate)
-        editableCampaign.startDate = prettyDate // THIS LINE NOT WORKING
-        console.log(foundCampaign)
+        // const editableCampaign = foundCampaign
+        // const rawDate = foundCampaign.startDate
+        // const year = rawDate.getFullYear()
+        // const month = rawDate.getMonth() + 1
+        // let monthString = month.toString()
+        // if (month < 10) {
+        //     monthString = '0' + month.toString()
+        // }
+        // const day = rawDate.getDay()
+        // let dayString = day.toString()
+        // if (day < 10) {
+        //     dayString = '0' + day.toString()
+        // } 
+        // const prettyDate = (year + "-" + monthString + "-" + dayString)
+        // console.log(prettyDate)
+        // editableCampaign.startDate = prettyDate // THIS LINE NOT WORKING
+        // console.log(editableCampaign)
         res.render('campaigns/edit.ejs', {
-            campaign: editableCampaign
+            // campaign: editableCampaign
+            campaign: foundCampaign
         })
     })
 })
