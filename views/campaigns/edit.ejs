@@ -18,22 +18,25 @@
         Players: <input type="text" name="players" value="<%= campaign.players %> " required><br />
         Open Slots: <input type="number" name="openSlots" value="<%=campaign.openSlots%>" required><br />
         Genre: <select name="genre" required>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Scifi">Scifi</option>
-            <option value="Horror">Horror</option>
-            <option value="OSR">OSR</option>
-            <option value="Survival">Survival</option>
-            <option value="Other">Other</option>
+            <% const genreOptions = ["Fantasy", "Scifi", "Horror", "OSR", "Survival", "Other"]
+            genreOptions.forEach(genre => { 
+                let isSelected = (genre === campaign.genre) ? "selected" : ""   %>
+                <option value="<%= genre %>" <%=isSelected%> ><%= genre %></option>
+            <% }) %>  
         </select><br />
         Game System: <select name="gameSystem" required>
-            <option value="D&D">D&D</option>
-            <option value="3D">3D</option>
-            <option value="4D">4D</option>
+            <% const gameSystemOptions = ['D&D', '3D', '4D'] 
+            gameSystemOptions.forEach(system => { 
+                let isSelected = (system === campaign.gameSystem) ? "selected" : "" %>
+                <option value="<%= system %>" <%=isSelected%> ><%= system %></option>
+            <% })%>
         </select><br />
         Difficulty: <select name="difficulty" required>
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
+            <% const difficultyOptions = ['Easy', 'Medium', 'Hard']
+            difficultyOptions.forEach(difficulty => { 
+                let isSelected = (difficulty === campaign.difficulty) ? "selected" : "" %>
+                <option value="<%= difficulty %>" <%=isSelected%> ><%= difficulty %></option>
+            <% }) %>
         </select><br />
         <% 
             // must be in this format "1990-01-21"
