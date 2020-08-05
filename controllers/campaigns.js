@@ -100,7 +100,7 @@ router.get('/:id/edit', async (req, res) => {
         const prettyDate = (year + "-" + monthString + "-" + dayString)
         console.log(prettyDate)
         editableCampaign.startDate = prettyDate // THIS LINE NOT WORKING
-        console.log(foundCampaign)
+        console.log(editableCampaign)
         res.render('campaigns/edit.ejs', {
             campaign: editableCampaign
         })
