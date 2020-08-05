@@ -13,7 +13,7 @@ const mongoose = require('mongoose')
 router.get('/', (req, res) => {
     Campaign.find({}, (err,foundCampaigns) => (
         //console.log(foundCampaigns)
-        res.render('campaigns/index.ejs', {
+        res.render('campaigns/index', {
             campaigns: foundCampaigns
         })
     ))
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
 // NEW
 router.get('/new', (req, res) => {
-    res.render('campaigns/new.ejs')
+    res.render('campaigns/new')
 })
 // CREATE
 router.post('/', (req,res) => {

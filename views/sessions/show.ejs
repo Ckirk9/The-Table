@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
-    
     <title>Show Sessions</title>
 </head>
-<body>
     <header>
         <h1><%=session.title%></h1>
-        <nav>
             <ul>
                 <li>
-                    <a href="/campaigns">Campaigns</a>
+                    <a href="/campaigns" class="link-dark">Campaigns</a>
                 </li>
                 <li>
-                    <a href="/sessions">Sessions Index</a>
+                    <a href="/sessions" class="link-dark">Sessions Index</a>
                 </li>
             </ul>
         </nav>
@@ -28,25 +17,17 @@
             <%=session.body%>
         </section>
         <br/> 
-        <section>
+        <section class="text-dark">
             Campaign: <%= campaign.name %>
             <a href="/campaigns/<%= campaign._id %> "><%= campaign.name %></a>
         </section>
         <br/>
-        <section>
+        <section class="text-dark">
             <form action="/sessions/<%=session._id%>?_method=DELETE" method="post">
                 <input type="submit" value="Delete Session"/>
             </form>
         </section>
-        <section>
+        <section class="text-dark">
 				<a href="/sessions/<%=session._id%>/edit">Edit</a>
         </section>
     </main>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
-
-</body>
-</html>
