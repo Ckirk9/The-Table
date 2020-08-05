@@ -1,0 +1,43 @@
+$base-font: 16px;
+$primaryFont: "Alegreya Black";
+
+body {
+  height: 100vh;
+  box-sizing: border-box;
+  font-size: $base-font;
+  font-family: $primaryFont
+}
+
+.gradient {
+  background: #d9e7ff;
+  background: radial-gradient(circle, 
+  #e3ffe7 0%, 
+  #d9e7ff 100%) 100%;
+}
+
+.page-header {
+  font-size: 1.25rem;
+  color: white;
+  // font-family: 'Alegreya', serif;
+  // font-family: 'Alegreya Sans SC', sans-serif;
+  font-family: 'Alegreya SC', serif;
+}
+
+.container {
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+.navbar {
+  margin-bottom: 2rem;
+}
+
+#home-row {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+#table-text {
+  color: black;
+}

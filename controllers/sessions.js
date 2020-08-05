@@ -6,7 +6,7 @@ const Campaign = require('../models/campaign')
 // path to sessions index
 router.get('/', (req, res) => {
     Session.find({}, (err, foundSessions) => {
-        res.render('sessions/index.ejs', {
+        res.render('sessions/index', {
             sessions: foundSessions
         })
     })
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 // path to edit
 router.get('/:id/edit', (req, res) => {
     Session.findById(req.params.id, (err, foundSession)=>{
-        res.render('sessions/edit.ejs', {
+        res.render('sessions/edit', {
             session : foundSession
         })
     })
@@ -49,7 +49,7 @@ router.delete('/:id', async (req, res) => {
 router.get('/new/:id', (req, res) => {
     Campaign.findById(req.params.id, req.body, (err, foundCampaign) => {
         if (err) {console.log(err)}
-        res.render('sessions/new.ejs', {
+        res.render('sessions/new', {
             campaign: foundCampaign
         })
     })
@@ -59,7 +59,7 @@ router.get('/new/:id', (req, res) => {
 router.get('/:id', (req, res) => {
     Session.findById(req.params.id, req.body, (err, foundSession) => {
         Campaign.findById(foundSession.campaign, (err, foundCampaign) => {
-            res.render('sessions/show.ejs', {
+            res.render('sessions/show', {
                 session: foundSession,
                 campaign: foundCampaign
             })
