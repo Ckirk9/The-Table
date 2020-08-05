@@ -12,12 +12,13 @@
 </nav>
 
 <h1 class="text-dark">Edit <%= campaign.name %> </h1>
+<div class="input-group mb-3">
     <form action="/campaigns/<%= campaign._id %>" method="POST"> 
         <!-- should this be a PUT? -->
         Name: <input type="text" name="name" value="<%= campaign.name %> " required ><br />
         Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> " required><br />
         Players: <input type="text" name="players" value="<%= campaign.players %> " required><br />
-    Open Slots: <input type="number" name="openSlots" value="<%=campaign.openSlots%>" required><br />
+        Open Slots: <input type="number" name="openSlots" value="<%=campaign.openSlots%>" required><br />
         Genre: <select name="genre" required>
             <% const genreOptions = ["Fantasy", "Scifi", "Horror", "OSR", "Survival", "Other"]
             genreOptions.forEach(genre => { 
@@ -58,6 +59,7 @@
         Description: <textarea name="description" required><%= campaign.description %></textarea><br />
         <input type="submit" value="Edit Campaign">
     </form>
+    </div>
     <p class="text-dark">Delete Campaign. Careful, cannot be undone!</p>
     <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
         <input type="submit" value="Delete">

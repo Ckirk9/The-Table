@@ -13,6 +13,7 @@
 </nav>
 
 <h1 class="text-dark">New Campaign</h1>
+<div class="input-group mb-3">
 <form action="/campaigns" class="text-dark" method="POST">
     Name: <input type="text" name="name" required><br />
     Dungeon Master: <input type="text" name="dungeonMaster" required><br />
@@ -39,3 +40,4 @@
     Start Date: <input type="date" name="startDate" required><br />
     Description: <textarea name="description" placeholder="Description" required></textarea><br>
     <input type="submit" value="Create Campaign">
+    </div>

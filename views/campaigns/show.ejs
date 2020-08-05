@@ -21,16 +21,17 @@
     </nav>
     
     <h1><%= campaign.name %></h1>
-    <h3>Dungeon Master: <%= campaign.dungeonMaster %></h3>
-    <h4>Players: <%= campaign.players %></h4>
-    <h4>Genre: <%= campaign.genre %> </h4>
-    <h4>Game System: <%= campaign.gameSystem %> </h4>
-    <h4>Difficulty: <%= campaign.difficulty %> </h4>
-    <h3>Open Slots: <%= campaign.openSlots %></h3>
+   <div>
+    Dungeon Master: <%= campaign.dungeonMaster %>
+    Players: <%= campaign.players %>
+    Genre: <%= campaign.genre %> 
+    Game System: <%= campaign.gameSystem %> 
+    D ifficulty: <%= campaign.difficulty %> 
+    Open Slots: <%= campaign.openSlots %>
     <% const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %> 
-    <h4>Start Date: <%= monthArray[campaign.startDate.getMonth()] %> <%= campaign.startDate.getDay() %>, <%= campaign.startDate.getFullYear() %></h4>
+    Start Date: <%= monthArray[campaign.startDate.getMonth()] %> <%= campaign.startDate.getDay() %>, <%= campaign.startDate.getFullYear() %> </div>
     <p><%= campaign.description %></p>
-    <h4>Session Logs: </h4>
+    
     <ul>
         <% campaign.sessions.forEach(session => { %>
             <li>
