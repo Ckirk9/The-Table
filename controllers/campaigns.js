@@ -76,6 +76,8 @@ router.get('/new', (req, res) => {
 // CREATE
 router.post('/', (req,res) => {
     Campaign.create(req.body,(err, createdCampaign) => {
+        console.log(createdCampaign)
+        console.log(err)
         res.redirect('/campaigns')
     })
 })
@@ -123,7 +125,6 @@ router.post('/:id', (req,res) => {
 
 // DELETE
 router.delete('/:id', (req,res) => {
-
     Campaign.findByIdAndDelete(req.params.id, (err, deletedCampaign) => {
         //console.log("In Deleter")
         Session.deleteMany({
@@ -134,8 +135,6 @@ router.delete('/:id', (req,res) => {
             console.log(err)
             res.redirect('/campaigns')
         })
-
-  
     })
 })
 

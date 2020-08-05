@@ -16,7 +16,7 @@
         Name: <input type="text" name="name" value="<%= campaign.name %> " required ><br />
         Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> " required><br />
         Players: <input type="text" name="players" value="<%= campaign.players %> " required><br />
-        Open Slots: <input type="number" name="openSlots" value="<%=campaign.openSlots%>" required><br />
+    Open Slots: <input type="number" name="openSlots" value="<%=campaign.openSlots%>" required><br />
         Genre: <select name="genre" required>
             <% const genreOptions = ["Fantasy", "Scifi", "Horror", "OSR", "Survival", "Other"]
             genreOptions.forEach(genre => { 
