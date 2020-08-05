@@ -26,8 +26,9 @@
     <h4>Genre: <%= campaign.genre %> </h4>
     <h4>Game System: <%= campaign.gameSystem %> </h4>
     <h4>Difficulty: <%= campaign.difficulty %> </h4>
-    <h4>Start Date: <%= campaign.startDate %></h4>
     <h3>Open Slots: <%= campaign.openSlots %></h3>
+    <% const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %> 
+    <h4>Start Date: <%= monthArray[campaign.startDate.getMonth()] %> <%= campaign.startDate.getDay() %>, <%= campaign.startDate.getFullYear() %></h4>
     <p><%= campaign.description %></p>
     <h4>Session Logs: </h4>
     <ul>
