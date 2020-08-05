@@ -1,5 +1,5 @@
 		<title>Edit Sessions</title>
-	</head>
+</head>
 	<ul>
 		<li>
 			<a href="/">Home</a>
@@ -10,7 +10,7 @@
 	</ul>
 </nav>
 
-<header>
+<div class="text-dark">
 <h1>Edit <%= session.title %></h1>
 	<main>
 		<div class="input-group mb-3">
@@ -21,8 +21,8 @@
 				aria-label="Sizing example input"
 				aria-describedby="inputGroup-sizing-default"
 				action="/sessions/<%= session._id %>?_method=PUT" 
-				method="post"><br/>
-			/>
+				method="post"
+			/><br/>
 			<!-- <form ></form> -->
 		</div>
 		<div class="input-group mb-3">
@@ -69,7 +69,7 @@
 				</textarea>
 			</div>
 		</div>
-		<input type="submit" value="Update Session"/>
+		<input type="submit" value="Update Session" src=""/>
 	</main>
-</header>	
+</div>	
 
