@@ -13,6 +13,13 @@ body {
   color: white;
   font-family: 'Alegreya SC', serif; }
 
+.footer {
+  margin-top: 30vh;
+  height: auto;
+  position: relative;
+  line-height: 180%;
+  padding: 0 10px; }
+
 .container {
   margin-top: 1rem;
   margin-right: 1rem; }

@@ -1,17 +1,16 @@
     <title>New Sessions</title>
 </head>
-<body>
-    <header>
-        <h1>Create a new Session</h1>
-            <nav>
-                <ul>
-                    <li>
-                    <a href="/" class="link-dark">New Session</a>
-                </li>>Home</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+        <ul>
+            <li>
+                <a href="/" class="link-dark">Home</a>
+            </li>
+            <li>
+                <a href="/" class="link-dark">New Session</a>
+            </li>
+        </ul>
+    </nav>
+        <div class="text-dark">
+        <h1>New Session</h1>
         <main>
             <form action="/sessions/<%= campaign._id %> " method="post">
                 Title: <input type="text" placeholder="Session Title" name="title" required/><br/>
@@ -21,13 +20,5 @@
                 <input type="submit" value="Publish Session"/><br/>
             </form>
         </main>
+    </div>
 
-<main>
-    <form action="/sessions/<%= campaign._id %> " method="post">
-        Title: <input type="text" placeholder="Session Title" name="title" /><br/>
-        Session Date: <input type="date" name="sessionDate" /><br/>
-        Session Author: <input type="text" placeholder="Your Name" name="author" /><br/>
-        Summary: <textarea placeholder="Summary of Session goes here" name="body"></textarea><br/>
-        <input type="submit" value="Publish Session"/><br/>
-    </form>
-</main>
