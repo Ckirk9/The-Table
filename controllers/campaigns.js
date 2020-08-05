@@ -84,25 +84,26 @@ router.post('/', (req,res) => {
 router.get('/:id/edit', async (req, res) => {
     Campaign.findById(req.params.id, (err, foundCampaign) => {
         //must be in this format "1990-01-21"
-        const editableCampaign = foundCampaign
-        const rawDate = foundCampaign.startDate
-        const year = rawDate.getFullYear()
-        const month = rawDate.getMonth() + 1
-        let monthString = month.toString()
-        if (month < 10) {
-            monthString = '0' + month.toString()
-        }
-        const day = rawDate.getDay()
-        let dayString = day.toString()
-        if (day < 10) {
-            dayString = '0' + day.toString()
-        } 
-        const prettyDate = (year + "-" + monthString + "-" + dayString)
-        console.log(prettyDate)
-        editableCampaign.startDate = prettyDate // THIS LINE NOT WORKING
-        console.log(editableCampaign)
+        // const editableCampaign = foundCampaign
+        // const rawDate = foundCampaign.startDate
+        // const year = rawDate.getFullYear()
+        // const month = rawDate.getMonth() + 1
+        // let monthString = month.toString()
+        // if (month < 10) {
+        //     monthString = '0' + month.toString()
+        // }
+        // const day = rawDate.getDay()
+        // let dayString = day.toString()
+        // if (day < 10) {
+        //     dayString = '0' + day.toString()
+        // } 
+        // const prettyDate = (year + "-" + monthString + "-" + dayString)
+        // console.log(prettyDate)
+        // editableCampaign.startDate = prettyDate // THIS LINE NOT WORKING
+        // console.log(editableCampaign)
         res.render('campaigns/edit.ejs', {
-            campaign: editableCampaign
+            // campaign: editableCampaign
+            campaign: foundCampaign
         })
     })
 })

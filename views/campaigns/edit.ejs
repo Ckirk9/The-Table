@@ -35,7 +35,22 @@
             <option value="Medium">Medium</option>
             <option value="Hard">Hard</option>
         </select><br />
-        Start Date: <input type="date" name="startDate" value="<%= campaign.startDate %>" required><br />
+        <% 
+            // must be in this format "1990-01-21"
+            const rawDate = campaign.startDate
+            const year = rawDate.getFullYear()
+            const month = rawDate.getMonth() + 1
+            let monthString = month.toString()
+            if (month < 10) {
+                monthString = '0' + month.toString()
+            }
+            const day = rawDate.getDay()
+            let dayString = day.toString()
+            if (day < 10) {
+                dayString = '0' + day.toString()
+            }
+        %> 
+        Start Date: <input type="date" name="startDate" value="<%= year %>-<%= monthString %>-<%= dayString %>" required><br />
         Description: <textarea name="description" required><%= campaign.description %></textarea><br />
         <input type="submit" value="Edit Campaign">
     </form>
