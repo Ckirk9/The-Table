@@ -19,8 +19,8 @@ router.get('/', (req, res) => {
 
 // FILTER (post)
 router.post('/filter', (req,res) => {
-    console.log(req.body)
-    const filterObject = req.body 
+    //console.log(req.body)
+    const filterObject = req.body
     let filterString = ''
     for (const property in filterObject) {
         if (filterObject[property]) {
@@ -30,7 +30,7 @@ router.post('/filter', (req,res) => {
     }
     if (filterString) {
         filterString = filterString.substring(0, filterString.length - 1)
-        res.redirect('/campaigns/filter/' + filterString) //placeholder redirect
+        res.redirect('/campaigns/filter/' + filterString) 
     } else {
         res.redirect('/campaigns/index')
     }
@@ -55,7 +55,13 @@ router.get('/filter/:id', async (req, res) => {
     // console.log('filter array 2')
     // console.log(filterArray)
     // console.log('filter object')
-    // console.log(filterObject)
+    console.log(filterObject)
+    if (filterObject.openSlots === "on") {
+        filterObject.openSlots = { $gte: 1 }
+    } else {
+        filterObject.openSlots = { $gte: 0 }
+    }
+    console.log(filterObject)
     const foundCampaigns = await Campaign.find(filterObject)
     // console.log(foundCampaigns)
     res.render('campaigns/filter.ejs', {
