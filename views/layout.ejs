@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- calling the css file -->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <!-- this is for Bootstrap 5 -->
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"> -->
   <!-- this is for Material Design for Bootstrap -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
+  <!-- embed for the font -->
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+SC:ital,wght@0,400;1,500&family=Alegreya+Sans+SC&display=swap" rel="stylesheet">
 
 </head>
-<body id="body">
+<body class="page-header gradient">
   <nav class="navbar navbar-expand{-sm|-md|-lg|-xl|-xxl} sticky-top navbar-light bg-light shadow-1-strong">
     <div class="container">
     <a class="navbar-brand" href="#" id="table-text"><h1>The Table</h1></a>
@@ -26,14 +26,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
   
-  
   <%- body %>
 
-
   <!-- Scripts -->
-    <!-- this is the cdn for bootstrap so we don't have to include the files in the project; it goes to get them from the online server instead -->
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script> -->
-    <!-- this is the same things but for Material Design for Bootstrap -->
+    <!-- this is the cdn for Material Design + Bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.js"></script>
     <!-- this is for Popper, which is neccesary for some of the features of Bootstrap to work correctly -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
