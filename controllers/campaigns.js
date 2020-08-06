@@ -151,14 +151,19 @@ router.delete('/:id', (req,res) => {
 })
 
 // SHOW
-router.get('/:id', (req,res) => {
-    Campaign.findById(req.params.id) 
+router.get('/:id', async (req,res) => {
+    const foundCampaign = await Campaign.findById(req.params.id)
+    const dungeonMaster = await Player.findById(foundCampaign.dungeonMaster)
     .populate({path: 'sessions'}) //maybe need to add "match"
-    .exec((err, foundCampaign) => {
-        if (err) {console.log(err)}
-        res.render('campaigns/show.ejs', {
-            campaign: foundCampaign,
-        })
+    // .exec((err, foundCampaign) => {
+    //     if (err) {console.log(err)}
+    //     res.render('campaigns/show.ejs', {
+    //         campaign: foundCampaign,
+    //     })
+    // })
+    res.render('campaigns/show.ejs', {
+        campaign: foundCampaign,
+        dungeonMaster: dungeonMaster
     })
 })
 
