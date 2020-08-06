@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 const Campaign = require('../models/campaign')
 const Session = require('../models/session') //needed for show page
+const Player = require('../models/player') //needed for new
 const mongoose = require('mongoose')
 
 
@@ -71,9 +72,19 @@ router.get('/filter/:id', async (req, res) => {
 })
 
 // NEW
+// router.get('/new', (req, res) => {
+//     res.render('campaigns/new')
+// })
+// NEW
 router.get('/new', (req, res) => {
-    res.render('campaigns/new')
+    Player.find({}, (err,foundPlayers) => {
+        console.log(foundPlayers)
+        res.render('campaigns/new', {
+            players: foundPlayers
+        })
+    })
 })
+
 // CREATE
 router.post('/', (req,res) => {
     Campaign.create(req.body,(err, createdCampaign) => {
