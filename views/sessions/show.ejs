@@ -19,7 +19,7 @@
                 <section>
                     <li class="list-group-item mb-3">
                     <% const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %> 
-                    <h4><%= monthArray[session.sessionDate.getMonth()] %> <%= session.sessionDate.getDay() %>, <%= session.sessionDate.getFullYear() %></h4>
+                    <h4><%= monthArray[session.sessionDate.getMonth()] %> <%= session.sessionDate.getDate() + 1 %>, <%= session.sessionDate.getFullYear() %></h4>
                 </li>
                 </section>
                 <section>
