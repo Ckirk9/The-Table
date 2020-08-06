@@ -11,7 +11,7 @@
     </nav>
     <h1 class="text-dark">Campaigns</h1>
     <div class="filter">
-        <form action="/campaigns/filter" method="POST">
+        <form action="/campaigns/filter" class="text-dark" method="POST">
             <!-- Name: <input type="text" name="name"><br /> -->
             <!-- Dungeon Master: <input type="text" name="dungeonMaster"><br />
             Players: <input type="text" name="players"><br /> -->
@@ -19,7 +19,7 @@
             Genre: <select name="genre">
                 <option value="" selected>Any</option>
                 <option value="Fantasy">Fantasy</option>
-                <option value="Scifi">Scifi</option>
+                <option value="Scifi">Sci-Fi</option>
                 <option value="Horror">Horror</option>
                 <option value="OSR">OSR</option>
                 <option value="Survival">Survival</option>
@@ -27,9 +27,14 @@
             </select><br />
             Game System: <select name="gameSystem">
                 <option value="" selected>Any</option>
-                <option value="D&D">D&D</option>
-                <option value="3D">3D</option>
-                <option value="4D">4D</option>
+                <option value="D&D5e">Dungeons & Dragons 5E</option>
+                <option value="D&D3.5e">Dungeons & Dragons 3.5</option>
+                <option value="Pathfinder1e">Pathfinder 1E</option>
+                <option value="Pathfinder2e">Pathfinder 2E</option>
+                <option value="VampireTheMasquerade5e">Vampire The Masquerade 5E</option>
+                <option value="WorldofDarkness">World of Darkness</option>
+                <option value="Pathfinder2e">Pathfinder 2E</option>
+                <option value="Other">Other</option>
             </select><br />
             Difficulty: <select name="difficulty">
                 <option value="" selected>Any</option>
@@ -39,7 +44,7 @@
             </select><br />
             <!-- Start Date: <input type="date" name="startDate"><br /> -->
             <!-- Description: <textarea name="description" placeholder="Description"></textarea><br> -->
-            <input type="submit" value="Filter Campaigns">
+            <button type="button" class="btn btn-light">Filter</button>
         </form>
     </div>
     <ul>

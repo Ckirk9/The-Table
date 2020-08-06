@@ -11,15 +11,9 @@
             <li>
                 <a href="/campaigns/new" class="link-dark">New Campaign</a>
             </li>
-            <li>
-                <a href="/campaigns/<%= campaign._id %>/edit" class="link-dark">Edit This Campaign</a>
-            </li>
-            <li>
-                <a href="/sessions/new/<%= campaign._id %> " class="link-dark">Add A Session</a>
-            </li>
         </ul>
     </nav>
-    
+    <div class="text-dark">
     <h1><%= campaign.name %></h1>
     <h3>Dungeon Master: <%= campaign.dungeonMaster %></h3>
     <h4>Players: <%= campaign.players %></h4>
@@ -37,4 +31,14 @@
                 <a href="/sessions/<%= session._id %>"><%= session.title %></a>
             </li>
         <% }) %>
+    </ul><br>
+
+    <ul>
+        <li>
+            <a href="/campaigns/<%= campaign._id %>/edit" class="link-dark">Edit This Campaign</a>
+        </li>
+        <li>
+            <a href="/sessions/new/<%= campaign._id %> " class="link-dark">Add A Session</a>
+        </li>
     </ul>
+</div>

@@ -1,7 +1,5 @@
     <title>Show Sessions</title>
 </head>
-    <header>
-        <h1><%=session.title%></h1>
             <ul>
                 <li>
                     <a href="/campaigns" class="link-dark">Campaigns</a>
@@ -11,9 +9,9 @@
                 </li>
             </ul>
         </nav>
-    </header>
-    <main>
+    <main class="text-dark">
         <section>
+            <h1><%=session.title%></h1>
             <% const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %> 
             <h4><%= monthArray[session.sessionDate.getMonth()] %> <%= session.sessionDate.getDay() %>, <%= session.sessionDate.getFullYear() %></h4>
         </section>
