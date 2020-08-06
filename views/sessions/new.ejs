@@ -1,7 +1,6 @@
     <title>New Sessions</title>
 </head>
                 <a href="/" class="nav-link link-dark">Home</a>
-                <a href="/" class="nav-link link-dark">New Session</a>
             </div>
         </div>
     </div>
@@ -11,8 +10,8 @@
     <h1 class="pg text-dark">New Session</h1>
     <main>
         <form action="/sessions/<%= campaign._id %> " method="post">
-            <div class="card card-light shadow-1-strong" style="width: 50rem;" id="form-card">
-                <ul class="list-group list-group-flush rounded">
+            <div class="card card-light shadow-1-strong" id="form-card">
+                <ul class="list-group list-group-flush rounded text-dark">
                     <li class="list-group-item">
                         Title: <input 
                             type="text" 
@@ -37,9 +36,11 @@
                     </li>
                     <br/>
                     <li class="list-group-item">
-                        Summary: <textarea 
-                            placeholder="Summary of Session goes here" 
-                            name="body" 
+                        Summary: <br> <textarea 
+                            type="text"
+                            placeholder="Summary of Session." 
+                            name="body"
+                            class="text-dark" 
                             required>
                         </textarea>
                     </li>

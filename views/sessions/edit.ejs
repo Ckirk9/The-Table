@@ -1,41 +1,29 @@
 		<title>Edit Sessions</title>
 </head>
 			<a href="/" class="nav-link link-dark">Home</a>
-			<a href="/sessions">Sessions Index</a>
+			<a href="/campaigns/<%= session.campaign %> " class="nav-link link-dark">Back To Campaign</a>
 			</div>
 		</div>
 	</div>
 </nav>
 
 <div class="text-dark">
-<h1>Edit <%= session.title %></h1>
+<h1 class="pg">Edit <%= session.title %></h1>
 	<main>
-		<div class="input-group mb-3">
-			<span class="input-group-text" id="inputGroup-sizing-default">Session Details:</span>
-			<input
-				type="text"
-				class="form-control"
-				aria-label="Sizing example input"
-				aria-describedby="inputGroup-sizing-default"
-				action="/sessions/<%= session._id %>?_method=PUT" 
-				method="post"
-				/>
-				<br/>
-			<!-- <form ></form> -->
-		</div>
+		<div class="card card-light shadow-1-strong" id="form-card">
 		<div class="input-group mb-3">
 				<span class="input-group-text" id="inputGroup-sizing-default">Title:</span>
-				<input
-					type="text"
-					name="title"
-					class="form-control"
-					aria-label="Sizing example input"
-					aria-describedby="inputGroup-sizing-default"
-					value="<%= session.title %>" 
-					required
-				/><br/>
-			</div>
-			<div class="input-group mb-3">
+					<input
+						type="text"
+						name="title"
+						class="form-control"
+						aria-label="Sizing example input"
+						aria-describedby="inputGroup-sizing-default"
+						value="<%= session.title %>" 
+						required
+					/><br/>
+		</div>
+			<div class="input-group mb-3"> 
 				<span class="input-group-text" id="inputGroup-sizing-default">Session Date:</span>
 				<input
 					type="date"
@@ -45,29 +33,34 @@
 					aria-describedby="inputGroup-sizing-default"
 					value="<%= session.sessionDate %>" 
 					required
-				/><br/>
+				/><br/> 
 			</div>
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="inputGroup-sizing-default">Session Author:</span>
-				<input
-					type="text"
-					name="author" 
-					class="form-control"
-					aria-label="Sizing example input"
-					aria-describedby="inputGroup-sizing-default"
-					value="<%= session.author %>" 
-					required
-				/><br/>
-			<div class="input-group">
-				<span class="input-group-text border-0">Summary:</span>
-					<textarea class="form-control rounded" 
-						name="body" 
-						value="<%= session.body %> required" 
-						aria-label="With textarea"> 
-				</textarea>
-			</div>
+			
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="inputGroup-sizing-default">Session Author:</span>
+					<input
+						type="text"
+						name="author" 
+						class="form-control"
+						aria-label="Sizing example input"
+						aria-describedby="inputGroup-sizing-default"
+						value="<%= session.author %>" 
+						required
+					/><br/>
+		<div class="input-group">
+			<span class="input-group-text border-0">Summary:</span>
+						<textarea class="form-control rounded" 
+							type="text"
+							name="body" 
+							value="<%= session.body %>"
+							aria-label="With textarea"
+							required>
+						</textarea> 
+					</div>
+					<br/>
+					<input type="submit" class="btn btn-light btn-lg btn-block shadow-1-strong mt-3" value="Update Session"/>
 		</div>
-		<input type="submit" class="btn btn-light btn-lg shadow-1-strong" value="Update Session" src=""/>
+		</div>
 	</main>
 </div>	
 

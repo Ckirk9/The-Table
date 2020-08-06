@@ -11,7 +11,7 @@
 <h1 class="pg text-dark">Edit <%= campaign.name %> </h1>
     <form action="/campaigns/<%= campaign._id %>" method="POST"> 
         <!-- should this be a PUT? -->
-        <div class="card card-light shadow-1-strong" style="width: 50rem;" id="form-card">
+        <div class="card card-light text-dark shadow-1-strong" id="form-card">
             <ul class="list-group list-group-flush rounded">
                 <li class="list-group-item"></li>
                     Name: <input 
@@ -108,8 +108,8 @@
     </form>
 
 <div class="text-dark"> 
-    <p class="text-dark">Delete Campaign. Careful, cannot be undone!</p>
+    <p class="text-dark">Delete Campaign. </br> Careful, cannot be undone!</p>
     <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
-        <input type="submit" class="btn btn-danger btn-lg shadow-1-strong" value="Delete">
+        <input type="submit" class="btn btn-danger btn-block btn-lg shadow-1-strong" value="Delete">
     </form>
 </div>

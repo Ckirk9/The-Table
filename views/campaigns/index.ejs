@@ -11,7 +11,7 @@
 <h1 class="pg text-dark">Campaign Filter</h1>
     <div class="filter">
         <form action="/campaigns/filter" class="text-dark" method="POST">
-            <div class="card card-light shadow-1-strong" style="width: 50rem;" id="form-card">
+            <div class="card card-light shadow-1-strong" id="form-card">
                 <ul class="list-group list-group-flush rounded">
             <!-- Name: <input type="text" name="name"><br /> -->
             <!-- Dungeon Master: <input type="text" name="dungeonMaster"><br />
@@ -57,7 +57,7 @@
             <br />  
             <!-- Start Date: <input type="date" name="startDate"><br /> -->
             <!-- Description: <textarea name="description" placeholder="Description"></textarea><br> -->
-            <button type="button" class="btn btn-light btn-lg">Filter</button>
+            <input type="submit" value="Filter" class="btn btn-light btn-lg">
             </ul>
         </div>
         </form>
@@ -66,9 +66,25 @@
 
 <h1 class="pg text-dark" >Campaigns</h1>
     <div>
-        <% campaigns.forEach(campaign => { %>
-            <a class="btn btn-light btn-lg btn-block shadow-1-strong" href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a>
-        <% }) %> 
+        <div class="card mb-3 d-flex justify-content-center" style="width: 0 aut0;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img
+                    src="images/watermelon.svg"
+                    alt="..."
+                class="img-fluid"
+                />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <% campaigns.forEach(campaign => { %>
+                        <a class="btn btn-light btn-lg btn-block shadow-1-strong" href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a>
+                    <% }) %> 
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 <br>
 

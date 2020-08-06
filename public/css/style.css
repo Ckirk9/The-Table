@@ -34,7 +34,9 @@ body {
 
 #form-card {
   padding: 10vh;
-  align-items: center; }
+  align-items: center;
+  margin: 0 auto;
+  width: 40rem; }
 
 .pg {
   text-align: center; }
