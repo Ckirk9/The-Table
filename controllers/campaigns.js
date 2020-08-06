@@ -127,7 +127,7 @@ router.post('/:id', (req,res) => {
 // DELETE
 router.delete('/:id', (req,res) => {
     Campaign.findByIdAndDelete(req.params.id, (err, deletedCampaign) => {
-        //console.log("In Deleter")
+        console.log("In Deleter")
         Session.deleteMany({
             _id: {
                 $in: deletedCampaign.sessions

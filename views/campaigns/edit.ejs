@@ -57,7 +57,7 @@
                 <br />
                 <li class="list-group-item">
                     Game System: <select name="gameSystem" required>
-                    <% const gameSystemOptions = ['D&D', '3D', '4D'] 
+                    <% const gameSystemOptions = ['Dungeons & Dragons 5E', 'Dungeons & Dragons 3.5', "Pathfinder 1E", "Pathfinder 2E", "Vampire The Masquerade 5E", "World of Darkness", "Other"] 
                     gameSystemOptions.forEach(system => { 
                         let isSelected = (system === campaign.gameSystem) ? "selected" : "" %>
                         <option value="<%= system %>" <%=isSelected%> ><%= system %></option>

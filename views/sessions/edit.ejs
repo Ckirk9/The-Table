@@ -10,7 +10,7 @@
 <div class="text-dark">
 <h1 class="pg">Edit <%= session.title %></h1>
 	<main>
-
+	<form action="/sessions/<%= session._id %>?_method=PUT" method="POST"> 
 		<div class="card card-light shadow-1-strong" id="form-card">
 		<div class="input-group mb-3">
 				<span class="input-group-text" id="inputGroup-sizing-default">Title:</span>
@@ -25,18 +25,6 @@
 					/><br/>
 		</div>
 			<div class="input-group mb-3"> 
-
-		<div class="input-group mb-3">
-			<span class="input-group-text" id="inputGroup-sizing-default">Session Details:</span>
-			<input
-				type="text"
-				class="form-control"
-				aria-label="Sizing example input"
-				aria-describedby="inputGroup-sizing-default"
-				action="/sessions/<%= session._id %>?_method=PUT" 
-				method="post"
-			/><br/>
-		</div>
     	<% 
 					const rawDate = session.sessionDate
 					const year = rawDate.getFullYear()
@@ -51,18 +39,6 @@
 						dayString = '0' + day.toString()
 					}
 				%> 
-		<div class="input-group mb-3">
-				<span class="input-group-text" id="inputGroup-sizing-default">Title:</span>
-				<input
-					type="text"
-					name="title"
-					class="form-control"
-					aria-label="Sizing example input"
-					aria-describedby="inputGroup-sizing-default"
-					 value="<%= year %>-<%= monthString %>-<%= dayString %>"
-					required
-				/><br/>
-			</div>
 			<div class="input-group mb-3">
 				<span class="input-group-text" id="inputGroup-sizing-default">Session Date:</span>
 				<input
@@ -87,6 +63,7 @@
 						value="<%= session.author %>" 
 						required
 					/><br/>
+		</div>
 		<div class="input-group">
 			<span class="input-group-text border-0">Summary:</span>
 						<textarea class="form-control rounded" 
@@ -100,7 +77,13 @@
 					<br/>
 					<input type="submit" class="btn btn-light btn-lg btn-block shadow-1-strong mt-3" value="Update Session"/>
 		</div>
-		</div>
+	</form>
 	</main>
 </div>	
 
+<div class="text-dark"> 
+    <p class="text-dark">Delete Session. </br> Careful, cannot be undone!</p>
+    <form action="/sessions/<%= session._id %>?_method=DELETE" method="POST">
+        <input type="submit" class="btn btn-danger btn-block btn-lg shadow-1-strong" value="Delete">
+    </form>
+</div>
