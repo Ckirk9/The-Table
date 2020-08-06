@@ -26,7 +26,7 @@ router.put('/:id', (req, res) => {
     Session.findByIdAndUpdate(req.params.id, req.body, (err, foundSession) => {
         console.log("in update")
         console.log(foundSession)
-        res.redirect('/sessions')
+        res.redirect('/campaigns')
     })
 })
 
