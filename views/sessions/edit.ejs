@@ -10,6 +10,7 @@
 <div class="text-dark">
 <h1 class="pg">Edit <%= session.title %></h1>
 	<main>
+
 		<div class="card card-light shadow-1-strong" id="form-card">
 		<div class="input-group mb-3">
 				<span class="input-group-text" id="inputGroup-sizing-default">Title:</span>
@@ -24,6 +25,45 @@
 					/><br/>
 		</div>
 			<div class="input-group mb-3"> 
+
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="inputGroup-sizing-default">Session Details:</span>
+			<input
+				type="text"
+				class="form-control"
+				aria-label="Sizing example input"
+				aria-describedby="inputGroup-sizing-default"
+				action="/sessions/<%= session._id %>?_method=PUT" 
+				method="post"
+			/><br/>
+		</div>
+    	<% 
+					const rawDate = session.sessionDate
+					const year = rawDate.getFullYear()
+					const month = rawDate.getMonth() + 1
+					let monthString = month.toString()
+					if (month < 10) {
+						monthString = '0' + month.toString()
+					}
+					const day = rawDate.getDay()
+					let dayString = day.toString()
+					if (day < 10) {
+						dayString = '0' + day.toString()
+					}
+				%> 
+		<div class="input-group mb-3">
+				<span class="input-group-text" id="inputGroup-sizing-default">Title:</span>
+				<input
+					type="text"
+					name="title"
+					class="form-control"
+					aria-label="Sizing example input"
+					aria-describedby="inputGroup-sizing-default"
+					 value="<%= year %>-<%= monthString %>-<%= dayString %>"
+					required
+				/><br/>
+			</div>
+			<div class="input-group mb-3">
 				<span class="input-group-text" id="inputGroup-sizing-default">Session Date:</span>
 				<input
 					type="date"
