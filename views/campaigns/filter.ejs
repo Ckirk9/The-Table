@@ -1,20 +1,16 @@
-    <title>Campaigns Filter results</title>
+    <title>Campaigns Filter Results</title>
 </head>
-    <h1>Campaigns</h1>
-    <nav>
-        <ul>
-            <li>
-                <a href="/" class="link-dark">Home</a>
-            </li>
-            <li>
-                <a href="/campaigns/new" class="link-dark">New Campaign</a>
-            </li>
-        </ul>
-    </nav>
-    <ul>
-        <% campaigns.forEach(campaign => { %>
-            <li><a href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a></li>
-        <% }) %>
-    </ul>
+            <a href="/" class="nav-link link-dark">Home</a>
+            <a href="/campaigns/new" class="nav-link link-dark">New Campaign</a>
+            </div>
+        </div>
+    </div>
+</nav>
 
+<h1 class="pg text-dark">Campaigns</h1>
+    <div class="text-dark">
+        <% campaigns.forEach(campaign => { %>
+            <a class="btn btn-light btn-lg btn-block shadow-1-strong" href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a>
+        <% }) %>
+    </div>
     

@@ -1,64 +1,115 @@
     <title>Edit Campaign</title>
 </head>
 <!-- opening nav tag in the layout.ejs -->
-<ul>
-    <li>
-        <a href="/" class="link-dark">Home</a>
-    </li>
-    <li>
-        <a href="/campaigns" class="link-dark">All Campaigns</a>
-    </li>
-</ul>
+            <a href="/" class="link-dark">Home</a>
+            <a href="/campaigns" class="link-dark">All Campaigns</a>
+            </div>
+        </div>
+    </div>
 </nav>
 
-<h1 class="text-dark">Edit <%= campaign.name %> </h1>
+<h1 class="pg text-dark">Edit <%= campaign.name %> </h1>
     <form action="/campaigns/<%= campaign._id %>" method="POST"> 
         <!-- should this be a PUT? -->
-        Name: <input type="text" name="name" value="<%= campaign.name %> " required ><br />
-        Dungeon Master: <input type="text" name="dungeonMaster" value="<%= campaign.dungeonMaster %> " required><br />
-        Players: <input type="text" name="players" value="<%= campaign.players %> " required><br />
-    Open Slots: <input type="number" name="openSlots" value="<%=campaign.openSlots%>" required><br />
-        Genre: <select name="genre" required>
-            <% const genreOptions = ["Fantasy", "Scifi", "Horror", "OSR", "Survival", "Other"]
-            genreOptions.forEach(genre => { 
-                let isSelected = (genre === campaign.genre) ? "selected" : ""   %>
-                <option value="<%= genre %>" <%=isSelected%> ><%= genre %></option>
-            <% }) %>  
-        </select><br />
-        Game System: <select name="gameSystem" required>
-            <% const gameSystemOptions = ['D&D', '3D', '4D'] 
-            gameSystemOptions.forEach(system => { 
-                let isSelected = (system === campaign.gameSystem) ? "selected" : "" %>
-                <option value="<%= system %>" <%=isSelected%> ><%= system %></option>
-            <% })%>
-        </select><br />
-        Difficulty: <select name="difficulty" required>
-            <% const difficultyOptions = ['Easy', 'Medium', 'Hard']
-            difficultyOptions.forEach(difficulty => { 
-                let isSelected = (difficulty === campaign.difficulty) ? "selected" : "" %>
-                <option value="<%= difficulty %>" <%=isSelected%> ><%= difficulty %></option>
-            <% }) %>
-        </select><br />
-        <% 
-            // must be in this format "1990-01-21"
-            const rawDate = campaign.startDate
-            const year = rawDate.getFullYear()
-            const month = rawDate.getMonth() + 1
-            let monthString = month.toString()
-            if (month < 10) {
-                monthString = '0' + month.toString()
-            }
-            const day = rawDate.getDay()
-            let dayString = day.toString()
-            if (day < 10) {
-                dayString = '0' + day.toString()
-            }
-        %> 
-        Start Date: <input type="date" name="startDate" value="<%= year %>-<%= monthString %>-<%= dayString %>" required><br />
-        Description: <textarea name="description" required><%= campaign.description %></textarea><br />
-        <input type="submit" value="Edit Campaign">
+        <div class="card card-light text-dark shadow-1-strong" id="form-card">
+            <ul class="list-group list-group-flush rounded">
+                <li class="list-group-item"></li>
+                    Name: <input 
+                    type="text" 
+                    name="name" 
+                    value="<%= campaign.name %> " 
+                    required >
+                </li>
+                <br />
+                <li class="list-group-item">
+                    Dungeon Master: <input 
+                    type="text" name="dungeonMaster" 
+                    value="<%= campaign.dungeonMaster %> " 
+                    required>
+                </li>
+                <br />
+                <li class="list-group-item">
+                    Players: <input type="text" 
+                    name="players" 
+                    value="<%= campaign.players %> " r
+                    equired>
+                </li>
+                <br />
+                <li class="list-group-item">
+                    Open Slots: <input 
+                    type="number" 
+                    name="openSlots" 
+                    value="<%=campaign.openSlots%>" 
+                    required>
+                </li>
+                <br />
+                <li class="list-group-item">
+                    Genre: <select 
+                    name="genre" 
+                    required>
+                    <% const genreOptions = ["Fantasy", "Scifi", "Horror", "OSR", "Survival", "Other"]
+                    genreOptions.forEach(genre => { 
+                        let isSelected = (genre === campaign.genre) ? "selected" : ""   %>
+                        <option value="<%= genre %>" <%=isSelected%> ><%= genre %></option>
+                    <% }) %>  
+                    </select>
+                </li>
+                <br />
+                <li class="list-group-item">
+                    Game System: <select name="gameSystem" required>
+                    <% const gameSystemOptions = ['D&D', '3D', '4D'] 
+                    gameSystemOptions.forEach(system => { 
+                        let isSelected = (system === campaign.gameSystem) ? "selected" : "" %>
+                        <option value="<%= system %>" <%=isSelected%> ><%= system %></option>
+                    <% })%>
+                </select>
+                </li>
+                <br />
+                <li class="list-group-item">
+                    Difficulty: <select name="difficulty" required>
+                    <% const difficultyOptions = ['Easy', 'Medium', 'Hard']
+                    difficultyOptions.forEach(difficulty => { 
+                        let isSelected = (difficulty === campaign.difficulty) ? "selected" : "" %>
+                        <option value="<%= difficulty %>" <%=isSelected%> ><%= difficulty %></option>
+                    <% }) %>
+                </select>
+                </li>
+                <br />
+                <li class="list-group-item">
+                    <% 
+                    // must be in this format "1990-01-21"
+                    const rawDate = campaign.startDate
+                    const year = rawDate.getFullYear()
+                    const month = rawDate.getMonth() + 1
+                    let monthString = month.toString()
+                    if (month < 10) {
+                        monthString = '0' + month.toString()
+                    }
+                    const day = rawDate.getDay()
+                    let dayString = day.toString()
+                    if (day < 10) {
+                        dayString = '0' + day.toString()
+                    }
+                    %> 
+                    </li>
+                <li class="list-group-item">
+                    Start Date: <input type="date" name="startDate" value="<%= year %>-<%= monthString %>-<%= dayString %>" required>
+                </li>
+                <br />
+                <li class="list-group-item">
+                    Description: <br><textarea name="description" required><%= campaign.description %></textarea>
+                </li>
+                <br />
+                <li class="list-group-item"></li>
+                    <input type="submit" class="btn btn-light btn-lg shadow-1-strong" value="Edit Campaign">
+                </li>
+            </ul>
+        </div>
     </form>
-    <p class="text-dark">Delete Campaign. Careful, cannot be undone!</p>
+
+<div class="text-dark"> 
+    <p class="text-dark">Delete Campaign. </br> Careful, cannot be undone!</p>
     <form action="/campaigns/<%= campaign._id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete">
+        <input type="submit" class="btn btn-danger btn-block btn-lg shadow-1-strong" value="Delete">
     </form>
+</div>
