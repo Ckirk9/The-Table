@@ -25,7 +25,7 @@
 					/><br/>
 		</div>
 			<div class="input-group mb-3"> 
-    	<% 
+    			<% 
 					const rawDate = session.sessionDate
 					const year = rawDate.getFullYear()
 					const month = rawDate.getMonth() + 1
@@ -47,7 +47,7 @@
 					class="form-control"
 					aria-label="Sizing example input"
 					aria-describedby="inputGroup-sizing-default"
-					value="<%= session.sessionDate %>" 
+					value="<%= year %>-<%= monthString %>-<%= dayString %>"
 					required
 				/><br/> 
 			</div>
@@ -66,13 +66,14 @@
 		</div>
 		<div class="input-group">
 			<span class="input-group-text border-0">Summary:</span>
-						<textarea class="form-control rounded" 
+						<!-- <textarea class="form-control rounded" 
 							type="text"
 							name="body" 
 							value="<%= session.body %>"
 							aria-label="With textarea"
 							required>
-						</textarea> 
+						</textarea>  -->
+						<textarea name="description" required><%= session.body %></textarea>
 					</div>
 					<br/>
 					<input type="submit" class="btn btn-light btn-lg btn-block shadow-1-strong mt-3" value="Update Session"/>
