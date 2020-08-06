@@ -1,35 +1,33 @@
     <title>Show Sessions</title>
 </head>
-            <ul>
-                <li>
-                    <a href="/campaigns" class="link-dark">Campaigns</a>
-                </li>
-                <li>
-                    <a href="/sessions" class="link-dark">Sessions Index</a>
-                </li>
-            </ul>
-        </nav>
-    <main class="text-dark">
-        <section>
-            <h1><%=session.title%></h1>
+            <a href="/campaigns" class="nav-link active link-dark">Campaigns</a>
+            <a href="/sessions" class="nav-link active link-dark">Sessions Index</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="text-dark">
+    <section>
+        <h1 class="pg text dark"><%=session.title%></h1>
             <% const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %> 
             <h4><%= monthArray[session.sessionDate.getMonth()] %> <%= session.sessionDate.getDay() %>, <%= session.sessionDate.getFullYear() %></h4>
-        </section>
-        <section>
+    </section>
+    <section>
             <%=session.body%>
-        </section>
-        <br/> 
-        <section class="text-dark">
-            Campaign: <%= campaign.name %>
-            <a href="/campaigns/<%= campaign._id %> "><%= campaign.name %></a>
-        </section>
-        <br/>
-        <section class="text-dark">
-            <form action="/sessions/<%=session._id%>?_method=DELETE" method="post">
-                <input type="submit" value="Delete Session"/>
-            </form>
-        </section>
-        <section class="text-dark">
-				<a href="/sessions/<%=session._id%>/edit">Edit</a>
-        </section>
-    </main>
+    </section>
+    <br/> 
+    <section class="text-dark">
+        Campaign: <%= campaign.name %>
+        <a href="/campaigns/<%= campaign._id %> "><%= campaign.name %></a>
+    </section>
+    <br/>
+    <section class="text-dark">
+        <form action="/sessions/<%=session._id%>?_method=DELETE" method="post">
+            <input type="submit" class="btn btn-danger btn-lg btn-block shadow-1-strong" value="Delete Session"/>
+        </form>
+    </section>
+    <section class="text-dark">
+		<a class="btn btn-light btn-lg btn-block shadow-1-strong" href="/sessions/<%=session._id%>/edit">Edit</a>
+    </section>
+</main>

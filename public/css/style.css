@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  padding-top: 14vh;
   box-sizing: border-box;
   font-size: 16px;
   font-family: "Alegreya Black"; }
@@ -14,7 +15,7 @@ body {
   font-family: 'Alegreya SC', serif; }
 
 .footer {
-  margin-top: 30vh;
+  margin-top: 50vh;
   height: auto;
   position: relative;
   line-height: 180%;
@@ -25,12 +26,18 @@ body {
   margin-right: 1rem; }
 
 .navbar {
+  padding: 1rem;
   margin-bottom: 2rem; }
 
-#home-row {
-  padding: 1rem;
-  padding-bottom: 2rem;
-  margin-bottom: 1.25rem; }
+.filter {
+  padding-left: 2rem; }
+
+#form-card {
+  padding: 10vh;
+  align-items: center; }
+
+.pg {
+  text-align: center; }
 
 #table-text {
   color: black; }

@@ -1,44 +1,56 @@
     <title>Campaigns Show Page</title>
 </head>
     <!-- opening nav tag in the layout.ejs -->
-        <ul>
-            <li>
-                <a href="/" class="link-dark">Home</a>
-            </li>
-            <li>
-                <a href="/campaigns" class="link-dark">All Campaigns</a>
-            </li>
-            <li>
-                <a href="/campaigns/new" class="link-dark">New Campaign</a>
-            </li>
-        </ul>
-    </nav>
-    <div class="text-dark">
-    <h1><%= campaign.name %></h1>
-    <h3>Dungeon Master: <%= campaign.dungeonMaster %></h3>
-    <h4>Players: <%= campaign.players %></h4>
-    <h4>Genre: <%= campaign.genre %> </h4>
-    <h4>Game System: <%= campaign.gameSystem %> </h4>
-    <h4>Difficulty: <%= campaign.difficulty %> </h4>
-    <h3>Open Slots: <%= campaign.openSlots %></h3>
-    <% const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %> 
-    <h4>Start Date: <%= monthArray[campaign.startDate.getMonth()] %> <%= campaign.startDate.getDay() %>, <%= campaign.startDate.getFullYear() %></h4>
-    <p><%= campaign.description %></p>
-    <h4>Session Logs: </h4>
-    <ul>
-        <% campaign.sessions.forEach(session => { %>
-            <li>
-                <a href="/sessions/<%= session._id %>"><%= session.title %></a>
-            </li>
-        <% }) %>
-    </ul><br>
+            <a href="/" class="nav-link active link-dark">Home</a>
+            <a href="/campaigns" class="nav-link active link-dark">All Campaigns</a>
+            <a href="/campaigns/new" class="nav-link active link-dark">New Campaign</a>
+            </div>
+        </div>
+    </div>
+</nav>
 
-    <ul>
-        <li>
-            <a href="/campaigns/<%= campaign._id %>/edit" class="link-dark">Edit This Campaign</a>
-        </li>
-        <li>
-            <a href="/sessions/new/<%= campaign._id %> " class="link-dark">Add A Session</a>
-        </li>
-    </ul>
+<div class="text-dark">
+    <h1 class="pg text-dark"><%= campaign.name %></h1>
+    <form action="/campaigns/filter" class="text-dark" method="POST">
+        <div class="card card-light shadow-1-strong" style="width: 50rem;" id="form-card">
+            <ul class="list-group list-group-flush rounded">
+                <li class="list-group-item">
+                    <h3>Dungeon Master: <%= campaign.dungeonMaster %></h3>
+                </li>
+                <li class="list-group-item">
+                    <h4>Players: <%= campaign.players %></h4>
+                </li>
+                <li class="list-group-item">
+                    <h4>Genre: <%= campaign.genre %> </h4>
+                </li>
+                <li class="list-group-item">
+                    <h4>Game System: <%= campaign.gameSystem %> </h4>
+                </li>
+                <li class="list-group-item">
+                    <h4>Difficulty: <%= campaign.difficulty %> </h4>
+                </li>
+                <li class="list-group-item">
+                    <h3>Open Slots: <%= campaign.openSlots %></h3>
+                </li>
+                <li class="list-group-item">
+                    <% const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %> 
+                    <h4>Start Date: <%= monthArray[campaign.startDate.getMonth()] %> <%= campaign.startDate.getDay() %>, <%= campaign.startDate.getFullYear() %></h4>
+                </li>
+                <li class="list-group-item">
+                    <p><%= campaign.description %></p>
+                </li>
+            </ul>
+        </div>
+    </form>
+<br>
+
+<h4 class="pg text-dark">Session Logs: </h4>
+        <% campaign.sessions.forEach(session => { %>
+                <a class="btn btn-light btn-lg btn-block shadow-1-strong" href="/sessions/<%= session._id %>"><%= session.title %></a>
+        <% }) %>
+<br>
+
+<div>
+    <a href="/campaigns/<%= campaign._id %>/edit" class="btn btn-light btn-lg btn-block shadow-1-strong">Edit This Campaign</a>
+    <a href="/sessions/new/<%= campaign._id %> " class="btn btn-light btn-lg btn-block shadow-1-strong">Add A Session</a>
 </div>

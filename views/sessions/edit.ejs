@@ -1,13 +1,10 @@
 		<title>Edit Sessions</title>
 </head>
-	<ul>
-		<li>
-			<a href="/">Home</a>
-		</li>
-			<li>
-				<a href="/sessions">Sessions Index</a>
-		</li>
-	</ul>
+			<a href="/" class="nav-link link-dark">Home</a>
+			<a href="/sessions">Sessions Index</a>
+			</div>
+		</div>
+	</div>
 </nav>
 
 <div class="text-dark">
@@ -22,7 +19,8 @@
 				aria-describedby="inputGroup-sizing-default"
 				action="/sessions/<%= session._id %>?_method=PUT" 
 				method="post"
-			/><br/>
+				/>
+				<br/>
 			<!-- <form ></form> -->
 		</div>
 		<div class="input-group mb-3">
@@ -69,7 +67,7 @@
 				</textarea>
 			</div>
 		</div>
-		<input type="submit" value="Update Session" src=""/>
+		<input type="submit" class="btn btn-light btn-lg shadow-1-strong" value="Update Session" src=""/>
 	</main>
 </div>	
 

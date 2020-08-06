@@ -1,21 +1,18 @@
     <title>Sessions Index</title>
 </head>
 <!-- opening nav tag in the layout.ejs -->
-    <h1 class="text-dark">Sessions</h1>
-        <ul>
-            <li>
-                <a href="/" class="link-dark">Back to Campaign</a>
-            </li>
-            <li>
-                <a href="/sessions/new" class="link-dark">New Session</a>
-            </li>
-            <br/>
-        </nav>
-        <h4 class="text-dark">List of Sessions</h4>
-        <ul>
+            <a href="/" class="nav-link active link-dark">Back to Campaign</a>
+            <a href="/sessions/new" class="nav-link active link-dark">New Session</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<h1 class="pg text-dark">Sessions</h1>
+
+<h4 class="pg text-dark">List of Sessions</h4>
             <% sessions.forEach(session => { %>
             <li>
-                <a href="/sessions/<%= session._id %>"><%= session.title %></a>
+                <a class="btn btn-light btn-lg btn-block shadow-1-strong" href="/sessions/<%= session._id %>"><%= session.title %></a>
             </li>
             <% }) %>
-        </ul>

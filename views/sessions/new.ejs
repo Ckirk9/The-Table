@@ -1,24 +1,54 @@
     <title>New Sessions</title>
 </head>
-        <ul>
-            <li>
-                <a href="/" class="link-dark">Home</a>
-            </li>
-            <li>
-                <a href="/" class="link-dark">New Session</a>
-            </li>
-        </ul>
-    </nav>
-        <div class="text-dark">
-        <h1>New Session</h1>
-        <main>
-            <form action="/sessions/<%= campaign._id %> " method="post">
-                Title: <input type="text" placeholder="Session Title" name="title" required/><br/>
-                Session Date: <input type="date" name="sessionDate" required /><br/>
-                Session Author: <input type="text" placeholder="Your Name" name="author" required/><br/>
-                Summary: <textarea placeholder="Summary of Session goes here" name="body" required></textarea><br/>
-                <input type="submit" value="Publish Session"/><br/>
-            </form>
-        </main>
+                <a href="/" class="nav-link link-dark">Home</a>
+                <a href="/" class="nav-link link-dark">New Session</a>
+            </div>
+        </div>
     </div>
+</nav>
+
+<div class="text-dark">
+    <h1 class="pg text-dark">New Session</h1>
+    <main>
+        <form action="/sessions/<%= campaign._id %> " method="post">
+            <div class="card card-light shadow-1-strong" style="width: 50rem;" id="form-card">
+                <ul class="list-group list-group-flush rounded">
+                    <li class="list-group-item">
+                        Title: <input 
+                            type="text" 
+                            placeholder="Session Title" 
+                            name="title" 
+                            required/>
+                    </li>
+                    <br/>
+                    <li class="list-group-item">
+                        Session Date: <input 
+                            type="date" 
+                            name="sessionDate" 
+                            required/>
+                    </li>
+                    <br/>
+                    <li class="list-group-item">
+                        Session Author: <input 
+                            type="text" 
+                            placeholder="Your Name" 
+                            name="author" 
+                            required/>
+                    </li>
+                    <br/>
+                    <li class="list-group-item">
+                        Summary: <textarea 
+                            placeholder="Summary of Session goes here" 
+                            name="body" 
+                            required>
+                        </textarea>
+                    </li>
+                    <br/>
+                    <input type="submit" class="btn btn-light btn-lg shadow-1-strong" value="Publish Session"/>
+                    <br/>
+                </ul>
+            </div>
+        </form>
+    </main>
+</div>
 
