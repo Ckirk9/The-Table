@@ -33,7 +33,7 @@
 					if (month < 10) {
 						monthString = '0' + month.toString()
 					}
-					const day = rawDate.getDay()
+					const day = rawDate.getDate() + 1
 					let dayString = day.toString()
 					if (day < 10) {
 						dayString = '0' + day.toString()

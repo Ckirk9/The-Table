@@ -145,6 +145,7 @@ router.get('/:id', (req,res) => {
     .populate({path: 'sessions'}) //maybe need to add "match"
     .exec((err, foundCampaign) => {
         if (err) {console.log(err)}
+        console.log(foundCampaign)
         res.render('campaigns/show.ejs', {
             campaign: foundCampaign,
         })

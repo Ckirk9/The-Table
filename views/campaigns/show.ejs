@@ -33,8 +33,10 @@
                     <h3>Open Slots: <%= campaign.openSlots %></h3>
                 </li>
                 <li class="list-group-item">
+                    <% console.log(campaign.startDate) %>
+                    <% console.log(campaign.startDate.getDate()) %>
                     <% const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %> 
-                    <h4>Start Date: <%= monthArray[campaign.startDate.getMonth()] %> <%= campaign.startDate.getDay() %>, <%= campaign.startDate.getFullYear() %></h4>
+                    <h4>Start Date: <%= monthArray[campaign.startDate.getMonth()] %> <%= campaign.startDate.getDate() + 1 %>, <%= campaign.startDate.getFullYear() %></h4>
                 </li>
                 <li class="list-group-item">
                     <p><%= campaign.description %></p>
