@@ -18,25 +18,26 @@
 			<h2>Session Details:</h2>
 			<form action="/sessions/<%= session._id %>?_method=PUT" method="post">
 				Title: <input type="text" name="title" value="<%= session.title %>" required/><br/>
-                Session Date: <input type="date" name="sessionDate" value="<%= session.sessionDate %>" required/><br/>
+				<% 
+					// must be in this format "1990-01-21"
+					const rawDate = session.sessionDate
+					const year = rawDate.getFullYear()
+					const month = rawDate.getMonth() + 1
+					let monthString = month.toString()
+					if (month < 10) {
+						monthString = '0' + month.toString()
+					}
+					const day = rawDate.getDay()
+					let dayString = day.toString()
+					if (day < 10) {
+						dayString = '0' + day.toString()
+					}
+				%> 
+				Session Date: <input type="date" name="startDate" value="<%= year %>-<%= monthString %>-<%= dayString %>" required><br />
                 Session Author: <input type="text" name="author" value="<%= session.author %>" required/><br/>
-				Summary: <textarea name="body"><%= session.body %> required</textarea><br/>
+				Summary: <textarea name="body" required><%= session.body %></textarea><br/>
 				<input type="submit" value="Update Session"/>
 			</form>
 		</main>
 
 
-<main>
-	<h2>Session Details:</h2>
-	<form action="/sessions/<%= session._id %>?_method=PUT" method="post">
-			Title: <input type="text" name="title" value="<%= session.title %>"/>
-			<br/>
-			Session Date: <input type="date" name="sessionDate" value="<%= session.sessionDate %>"/>
-			<br/>
-			Session Author: <input type="text" name="author" value="<%= session.author %>">
-			<br/>
-			Summary: <textarea name="body"><%= session.body %></textarea>
-			<br/>
-			<input type="submit" value="Update Session"/>
-	</form>
-</main>
