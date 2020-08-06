@@ -1,25 +1,28 @@
 		<title>Edit Sessions</title>
-	</head>
+</head>
+	<ul>
+		<li>
+			<a href="/">Home</a>
+		</li>
+	</ul>
+</nav>
 
-		<header>
-			<h1>Edit <%= session.title %></h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/sessions">Sessions Index</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
-		<main>
-			<h2>Session Details:</h2>
-			<form action="/sessions/<%= session._id %>?_method=PUT" method="post">
-				Title: <input type="text" name="title" value="<%= session.title %>" required/><br/>
-				<% 
-					// must be in this format "1990-01-21"
+<div class="text-dark">
+<h1>Edit <%= session.title %></h1>
+	<main>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="inputGroup-sizing-default">Session Details:</span>
+			<input
+				type="text"
+				class="form-control"
+				aria-label="Sizing example input"
+				aria-describedby="inputGroup-sizing-default"
+				action="/sessions/<%= session._id %>?_method=PUT" 
+				method="post"
+			/><br/>
+			<!-- <form ></form> -->
+		</div>
+    	<% 
 					const rawDate = session.sessionDate
 					const year = rawDate.getFullYear()
 					const month = rawDate.getMonth() + 1
@@ -33,11 +36,51 @@
 						dayString = '0' + day.toString()
 					}
 				%> 
-				Session Date: <input type="date" name="startDate" value="<%= year %>-<%= monthString %>-<%= dayString %>" required><br />
-                Session Author: <input type="text" name="author" value="<%= session.author %>" required/><br/>
-				Summary: <textarea name="body" required><%= session.body %></textarea><br/>
-				<input type="submit" value="Update Session"/>
-			</form>
-		</main>
-
+		<div class="input-group mb-3">
+				<span class="input-group-text" id="inputGroup-sizing-default">Title:</span>
+				<input
+					type="text"
+					name="title"
+					class="form-control"
+					aria-label="Sizing example input"
+					aria-describedby="inputGroup-sizing-default"
+					 value="<%= year %>-<%= monthString %>-<%= dayString %>"
+					required
+				/><br/>
+			</div>
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="inputGroup-sizing-default">Session Date:</span>
+				<input
+					type="date"
+					name="sessionDate" 
+					class="form-control"
+					aria-label="Sizing example input"
+					aria-describedby="inputGroup-sizing-default"
+					value="<%= session.sessionDate %>" 
+					required
+				/><br/>
+			</div>
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="inputGroup-sizing-default">Session Author:</span>
+				<input
+					type="text"
+					name="author" 
+					class="form-control"
+					aria-label="Sizing example input"
+					aria-describedby="inputGroup-sizing-default"
+					value="<%= session.author %>" 
+					required
+				/><br/>
+			<div class="input-group">
+				<span class="input-group-text border-0">Summary:</span>
+					<textarea class="form-control rounded" 
+						name="body" 
+						value="<%= session.body %> required" 
+						aria-label="With textarea"> 
+				</textarea>
+			</div>
+		</div>
+		<input type="submit" value="Update Session" src=""/>
+	</main>
+</div>	
 
