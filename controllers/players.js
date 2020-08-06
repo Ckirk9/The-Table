@@ -32,12 +32,28 @@ router.post('/', (req, res) => {
 })
 
 // SHOW
-router.get('/:id', (req,res) => {
-    Player.findById(req.params.id, req.body, (err, foundPlayer) => {
-        console.log(foundPlayer)
-        res.render('players/show.ejs', {
-            player: foundPlayer,
-        })
+router.get('/:id', async (req,res) => {
+    // Player.findById(req.params.id, req.body, (err, foundPlayer) => {
+    //     console.log(foundPlayer)
+    //     res.render('players/show.ejs', {
+    //         player: foundPlayer,
+    //     })
+    // })
+    // const foundPlayer = Player.findById(req.params.id)
+    // const campaignsDMingArray = []
+    // player.campaignsDMing.forEach(id => {
+    //     let campaignDMing = await Campaign.findById(id)
+    //     campaignsDMingArray.push(campaignDMing)
+    // });
+    // console.log(campaignsDMingArray)
+    // res.render('players/show.ejs', {
+    //     //         player: foundPlayer,
+    //     //     })
+    const foundPlayer = await Player.findById(req.params.id)//, req.body, (err, foundPlayer) => {
+    .populate({path: 'campaignsDMing'})   
+    console.log(foundPlayer)
+    res.render('players/show.ejs', {
+        player: foundPlayer,
     })
 })
 

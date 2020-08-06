@@ -23,7 +23,7 @@
     <% if (player.campaignsDMing[0]) { %>
         <%= player.username %> is the dungeon master for: <br>
         <% player.campaignsDMing.forEach(campaign => { %>
-            <%= campaign %> <br>
+            <a href="/campaigns/<%= campaign._id %>" ><%= campaign.name %></a><br>
         <% }) %>   
     <% } %>
 </body>
