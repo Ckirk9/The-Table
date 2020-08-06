@@ -4,22 +4,24 @@ const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const ejsLayouts = require('express-ejs-layouts')
+
+require("dotenv").config()
+
 const sessionsController = require('./controllers/sessions.js')
 const campaignsController = require('./controllers/campaigns.js')
 
 
 //DB connection
-const connectionString = 'mongodb://localhost/the-table'
 const db = mongoose.connection
 
-mongoose.connect(connectionString, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false
 })
 
-db.on('connected', () => console.log(`Mongoose connected to ${connectionString}`))
+db.on('connected', () => console.log(`Mongoose connected to ${process.env.MONGODB_URI}`))
 db.on('disconnected', () => console.log('Mongoose disconnected'))
 db.on('error', (err) => console.log('Mongoose error', err))
 
@@ -50,7 +52,6 @@ app.get('/', (req, res) => {
 
 
 //listen
-const PORT = 4000
-app.listen(PORT, () => {
-    console.log('listening on port: ' + PORT)
+app.listen(process.env.PORT, () => {
+    console.log('listening on port: ' + process.env.PORT)
 })

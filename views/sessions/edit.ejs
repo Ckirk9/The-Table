@@ -4,9 +4,6 @@
 		<li>
 			<a href="/">Home</a>
 		</li>
-			<li>
-				<a href="/sessions">Sessions Index</a>
-		</li>
 	</ul>
 </nav>
 
@@ -25,6 +22,20 @@
 			/><br/>
 			<!-- <form ></form> -->
 		</div>
+    	<% 
+					const rawDate = session.sessionDate
+					const year = rawDate.getFullYear()
+					const month = rawDate.getMonth() + 1
+					let monthString = month.toString()
+					if (month < 10) {
+						monthString = '0' + month.toString()
+					}
+					const day = rawDate.getDay()
+					let dayString = day.toString()
+					if (day < 10) {
+						dayString = '0' + day.toString()
+					}
+				%> 
 		<div class="input-group mb-3">
 				<span class="input-group-text" id="inputGroup-sizing-default">Title:</span>
 				<input
@@ -33,7 +44,7 @@
 					class="form-control"
 					aria-label="Sizing example input"
 					aria-describedby="inputGroup-sizing-default"
-					value="<%= session.title %>" 
+					 value="<%= year %>-<%= monthString %>-<%= dayString %>"
 					required
 				/><br/>
 			</div>
