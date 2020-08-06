@@ -1,41 +1,90 @@
-    <title>New Campaign</title>
 </head>
-<!-- opening nav tag in the layout.ejs -->
-</form>
-    <ul>
-        <li>
-            <a href="/" class="link-dark">Home</a>
-        </li>
-        <li>
-            <a href="/campaigns" class="link-dark">All Campaigns</a>
-        </li>
-    </ul>
+            <a href="/" class="nav-link link-dark">Home</a>
+            <a href="/campaigns" class="nav-link link-dark">All Campaigns</a>
+            </div>
+        </div>
+    </div>
 </nav>
 
-<h1 class="text-dark">New Campaign</h1>
+<h1 class="pg text-dark">New Campaign</h1>
 <form action="/campaigns" class="text-dark" method="POST">
-    Name: <input type="text" name="name" required><br />
-    Dungeon Master: <input type="text" name="dungeonMaster" required><br />
-    Players: <input type="text" name="players" required><br />
-    Open Slots: <input type="number" name="openSlots" required max:6><br /> 
-    Genre: <select name="genre" required>
-        <option value="Fantasy">Fantasy</option>
-        <option value="Scifi">Scifi</option>
-        <option value="Horror">Horror</option>
-        <option value="OSR">OSR</option>
-        <option value="Survival">Survival</option>
-        <option value="Other">Other</option>
-    </select><br />
-    Game System: <select name="gameSystem" required>
-        <option value="D&D">D&D</option>
-        <option value="3D">3D</option>
-        <option value="4D">4D</option>
-    </select><br />
-    Difficulty: <select name="difficulty" required>
-        <option value="Easy">Easy</option>
-        <option value="Medium">Medium</option>
-        <option value="Hard">Hard</option>
-    </select><br />
-    Start Date: <input type="date" name="startDate" required><br />
-    Description: <textarea name="description" placeholder="Description" required></textarea><br>
-    <input type="submit" value="Create Campaign">
+    <div class="card card-light shadow-1-strong" id="form-card">
+        <ul class="list-group list-group-flush rounded">
+            <li class="list-group-item">
+                Name: <input 
+                    type="text" 
+                    name="name" 
+                    required>
+            </li>
+            <br />
+                Dungeon Master: <input 
+                    type="text" 
+                    name="dungeonMaster" 
+                    required>
+            </li>
+            <br />
+            <li class="list-group-item">
+                Players: <input 
+                    type="text" 
+                    name="players" 
+                    required>
+            </li>
+            <br />
+            <li class="list-group-item">
+                Open Slots: <input 
+                    type="number" 
+                    name="openSlots" 
+                    required 
+                    max:6>
+            </li>
+            <br /> 
+            <li class="list-group-item">
+                Genre: <select name="genre" required>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Scifi">Scifi</option>
+                    <option value="Horror">Horror</option>
+                    <option value="OSR">OSR</option>
+                    <option value="Survival">Survival</option>
+                    <option value="Other">Other</option>
+                </select>
+            </li>
+            <br />
+            <li class="list-group-item">
+                Game System: <select name="gameSystem" required>
+                    <option value="Dungeons & Dragons 5E">Dungeons & Dragons 5E</option>
+                    <option value="Dungeons & Dragons 3.5">Dungeons & Dragons 3.5</option>
+                    <option value="Pathfinder 1E">Pathfinder 1E</option>
+                    <option value="Pathfinder 2E">Pathfinder 2E</option>
+                    <option value="Vampire The Masquerade 5E">Vampire The Masquerade 5E</option>
+                    <option value="World of Darkness">World of Darkness</option>
+                    <option value="Other">Other</option>
+                </select>
+            </li>
+            <br />
+            <li class="list-group-item">
+                Difficulty: <select name="difficulty" required>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>   
+            </li>
+            <br />
+            <li class="list-group-item">
+                Start Date: <input 
+                    type="date" 
+                    name="startDate" 
+                    required>
+            </li>
+            <br />
+            <li class="list-group-item">
+                Description: <br> <textarea 
+                    name="description" 
+                    placeholder="" 
+                    required>
+                </textarea>
+            </li>
+            <br>
+            <input type="submit" class="btn btn-light btn-lg btn-block shadow-1-strong" value="Create Campaign">
+        </ul>
+    </div>
+</form>

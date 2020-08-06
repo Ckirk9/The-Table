@@ -1,42 +1,82 @@
-		<title>Edit Sessions</title>
-	</head>
+</head>
+			<a href="/" class="nav-link link-dark">Home</a>
+			<a href="/campaigns/<%= session.campaign %> " class="nav-link link-dark">Back To Campaign</a>
+			</div>
+		</div>
+	</div>
+</nav>
 
-		<header>
-			<h1>Edit <%= session.title %></h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/sessions">Sessions Index</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
-		<main>
-			<h2>Session Details:</h2>
-			<form action="/sessions/<%= session._id %>?_method=PUT" method="post">
-				Title: <input type="text" name="title" value="<%= session.title %>" required/><br/>
-                Session Date: <input type="date" name="sessionDate" value="<%= session.sessionDate %>" required/><br/>
-                Session Author: <input type="text" name="author" value="<%= session.author %>" required/><br/>
-				Summary: <textarea name="body"><%= session.body %> required</textarea><br/>
-				<input type="submit" value="Update Session"/>
-			</form>
-		</main>
-
-
-<main>
-	<h2>Session Details:</h2>
-	<form action="/sessions/<%= session._id %>?_method=PUT" method="post">
-			Title: <input type="text" name="title" value="<%= session.title %>"/>
-			<br/>
-			Session Date: <input type="date" name="sessionDate" value="<%= session.sessionDate %>"/>
-			<br/>
-			Session Author: <input type="text" name="author" value="<%= session.author %>">
-			<br/>
-			Summary: <textarea name="body"><%= session.body %></textarea>
-			<br/>
-			<input type="submit" value="Update Session"/>
+<div class="text-dark">
+<h1 class="pg">Edit <%= session.title %></h1>
+	<main>
+	<form action="/sessions/<%= session._id %>?_method=PUT" method="POST"> 
+		<div class="card card-light shadow-1-strong" id="form-card">
+		<div class="input-group mb-3">
+				<span class="input-group-text" id="inputGroup-sizing-default">Title:</span>
+					<input
+						type="text"
+						name="title"
+						class="form-control"
+						aria-label="Sizing example input"
+						aria-describedby="inputGroup-sizing-default"
+						value="<%= session.title %>" 
+						required
+					/><br/>
+		</div>
+			<div class="input-group mb-3"> 
+    			<% 
+					const rawDate = session.sessionDate
+					const year = rawDate.getFullYear()
+					const month = rawDate.getMonth() + 1
+					let monthString = month.toString()
+					if (month < 10) {
+						monthString = '0' + month.toString()
+					}
+					const day = rawDate.getDate() + 1
+					let dayString = day.toString()
+					if (day < 10) {
+						dayString = '0' + day.toString()
+					}
+				%> 
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="inputGroup-sizing-default">Session Date:</span>
+				<input
+					type="date"
+					name="sessionDate" 
+					class="form-control"
+					aria-label="Sizing example input"
+					aria-describedby="inputGroup-sizing-default"
+					value="<%= year %>-<%= monthString %>-<%= dayString %>"
+					required
+				/><br/> 
+			</div>
+			
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="inputGroup-sizing-default">Session Author:</span>
+					<input
+						type="text"
+						name="author" 
+						class="form-control"
+						aria-label="Sizing example input"
+						aria-describedby="inputGroup-sizing-default"
+						value="<%= session.author %>" 
+						required
+					/><br/>
+		</div>
+		<div class="input-group">
+			<span class="input-group-text border-0">Summary:</span>
+						<textarea name="description" required><%= session.body %></textarea>
+					</div>
+					<br/>
+					<input type="submit" class="btn btn-light btn-lg btn-block shadow-1-strong mt-3" value="Update Session"/>
+		</div>
 	</form>
-</main>
+	</main>
+</div>	
+
+<div class="text-dark"> 
+    <p class="text-dark">Delete Session. <br> Careful, cannot be undone!</p>
+    <form action="/sessions/<%= session._id %>?_method=DELETE" method="POST">
+        <input type="submit" class="btn btn-danger btn-block btn-lg shadow-1-strong" value="Delete">
+    </form>
+</div>

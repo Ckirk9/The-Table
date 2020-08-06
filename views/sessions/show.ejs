@@ -1,37 +1,37 @@
-    <title>Show Sessions</title>
 </head>
-    <header>
-        <h1><%=session.title%></h1>
-            <ul>
-                <li>
-                    <a href="/campaigns" class="link-dark">Campaigns</a>
+            <a href="/campaigns" class="nav-link active link-dark">Campaigns</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="text-dark">
+    <h1 class="pg center text-dark"><%=session.title%></h1>
+    <div class="card card-light shadow-1-strong" id="form-card">
+        <div class="input-group d-flex justify-content-center">
+            <ul class="list-group list-group-flush text-center rounded">
+                <section class="text-dark">
+                    <li class="list-group-item mt-1">
+                        Campaign: <a class="text-dark" href="/campaigns/<%= campaign._id %> "><%= campaign.name %></a>
+                    </li>
+                </section>
+                <section>
+                    <li class="list-group-item mb-3">
+                    <% const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %> 
+                    <h4><%= monthArray[session.sessionDate.getMonth()] %> <%= session.sessionDate.getDate() + 1 %>, <%= session.sessionDate.getFullYear() %></h4>
                 </li>
-                <li>
-                    <a href="/sessions" class="link-dark">Sessions Index</a>
-                </li>
+                </section>
+                <section>
+                    <li class="list-group-item mb-3">
+                        <%=session.body%>
+                    </li>
+                </section>
+                <br>
+                <section class="text-dark">
+                    <a class="btn btn-light btn-lg btn-block shadow-1-strong" href="/sessions/<%=session._id%>/edit">Edit</a>
+                </section>
+                <br/>
             </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <% const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %> 
-            <h4><%= monthArray[session.sessionDate.getMonth()] %> <%= session.sessionDate.getDay() %>, <%= session.sessionDate.getFullYear() %></h4>
-        </section>
-        <section>
-            <%=session.body%>
-        </section>
-        <br/> 
-        <section class="text-dark">
-            Campaign: <%= campaign.name %>
-            <a href="/campaigns/<%= campaign._id %> "><%= campaign.name %></a>
-        </section>
-        <br/>
-        <section class="text-dark">
-            <form action="/sessions/<%=session._id%>?_method=DELETE" method="post">
-                <input type="submit" value="Delete Session"/>
-            </form>
-        </section>
-        <section class="text-dark">
-				<a href="/sessions/<%=session._id%>/edit">Edit</a>
-        </section>
-    </main>
+        </div>
+    </div>
+</main>

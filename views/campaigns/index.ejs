@@ -1,49 +1,82 @@
-    <title>Campaigns Index</title>
-    <!-- opening nav tag in the layout.ejs -->
-        <ul>
-            <li>
-                <a href="/" class="link-dark">Home</a>
-            </li>
-            <li>
-                <a href="/campaigns/new" class="link-dark">New Campaign</a>
-            </li>
-        </ul>
-    </nav>
-    <h1 class="text-dark">Campaigns</h1>
-    <div class="filter">
-        <form action="/campaigns/filter" method="POST">
-            <!-- Name: <input type="text" name="name"><br /> -->
-            <!-- Dungeon Master: <input type="text" name="dungeonMaster"><br />
-            Players: <input type="text" name="players"><br /> -->
-            Has Open Slots: <input type="checkbox" name="openSlots"><br />  
-            Genre: <select name="genre">
-                <option value="" selected>Any</option>
-                <option value="Fantasy">Fantasy</option>
-                <option value="Scifi">Scifi</option>
-                <option value="Horror">Horror</option>
-                <option value="OSR">OSR</option>
-                <option value="Survival">Survival</option>
-                <option value="Other">Other</option>
-            </select><br />
-            Game System: <select name="gameSystem">
-                <option value="" selected>Any</option>
-                <option value="D&D">D&D</option>
-                <option value="3D">3D</option>
-                <option value="4D">4D</option>
-            </select><br />
-            Difficulty: <select name="difficulty">
-                <option value="" selected>Any</option>
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-            </select><br />
-            <!-- Start Date: <input type="date" name="startDate"><br /> -->
-            <!-- Description: <textarea name="description" placeholder="Description"></textarea><br> -->
-            <input type="submit" value="Filter Campaigns">
-        </form>
+</head>
+            <a href="/" class="nav-link link-dark">Home</a>
+            <a href="/campaigns/new" class="nav-link active link-dark"> New Campaign</a>
+            </div>
+        </div>
     </div>
-    <ul>
-        <% campaigns.forEach(campaign => { %>
-            <li><a href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a></li>
-        <% }) %>
-    </ul>
+</nav>
+
+<h1 class="pg text-dark">Campaign Filter</h1>
+<div class="filter">
+    <form action="/campaigns/filter" class="text-dark" method="POST">
+        <div class="card card-light shadow-1-strong" id="form-card">
+            <ul class="list-group list-group-flush rounded">
+            <li class="list-group-item">
+                Genre: <select name="genre">
+                    <option value="" selected>Any</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Scifi">Sci-Fi</option>
+                    <option value="Horror">Horror</option>
+                    <option value="OSR">OSR</option>
+                    <option value="Survival">Survival</option>
+                    <option value="Other">Other</option>
+                </select>
+            </li>
+        <br />
+            <li class="list-group-item">
+                Game System: <select name="gameSystem">
+                    <option value="" selected>Any</option>
+                    <option value="Dungeons & Dragons 5E">Dungeons & Dragons 5E</option>
+                    <option value="Dungeons & Dragons 3.5">Dungeons & Dragons 3.5</option>
+                    <option value="Pathfinder 1E">Pathfinder 1E</option>
+                    <option value="Pathfinder 2E">Pathfinder 2E</option>
+                    <option value="Vampire The Masquerade 5E">Vampire The Masquerade 5E</option>
+                    <option value="World of Darkness">World of Darkness</option>
+                    <option value="Other">Other</option>
+                </select>
+            </li>
+        <br />
+            <li class="list-group-item">
+                Difficulty: <select name="difficulty">
+                    <option value="" selected>Any</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            </li>
+        <br />
+            <li class="list-group-item">
+                Has Open Slots: <input type="checkbox" name="openSlots">
+            </li>
+        <br />  
+        <input type="submit" value="Filter" class="btn btn-light btn-lg">
+        </ul>
+    </div>
+    </form>
+</div>
+<br>
+
+<h1 class="pg text-dark" >Campaigns</h1>
+<div>
+    <div class="card mb-3 d-flex justify-content-center" style="width: 0 aut0;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img
+                src="images/watermelon.svg"
+                alt="..."
+            class="img-fluid"
+            />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                <% campaigns.forEach(campaign => { %>
+                    <a class="btn btn-light btn-lg btn-block shadow-1-strong" href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a>
+                <% }) %> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+

@@ -1,30 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0-alpha4/mdb.min.css">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
-    
-    <title>Campaigns Filter results</title>
 </head>
+            <a href="/" class="nav-link link-dark">Home</a>
+            <a href="/campaigns/new" class="nav-link link-dark">New Campaign</a>
+            </div>
+        </div>
+    </div>
+</nav>
 
-    <h1>Campaigns</h1>
-    <nav>
-        <ul>
-            <li>
-                <a href="/" class="link-dark">Home</a>
-            </li>
-            <li>
-                <a href="/campaigns/new" class="link-dark">New Campaign</a>
-            </li>
-        </ul>
-    </nav>
-    <ul>
-        <% campaigns.forEach(campaign => { %>
-            <li><a href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a></li>
-        <% }) %>
-    </ul>
-
-    
+<h1 class="pg text-dark">Campaigns</h1>
+<div class="text-dark">
+    <% campaigns.forEach(campaign => { %>
+        <a class="btn btn-light btn-lg btn-block shadow-1-strong" href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a>
+    <% }) %>
+</div>
