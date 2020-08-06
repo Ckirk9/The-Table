@@ -23,8 +23,10 @@ router.get('/:id/edit', (req, res) => {
 
 // path to veiw edited session 
 router.put('/:id', (req, res) => {
-    Session.findByIdAndUpdate(req.params.id, req.body, () => {
-        res.redirect('/sessions')
+    Session.findByIdAndUpdate(req.params.id, req.body, (err, foundSession) => {
+        console.log("in update")
+        console.log(foundSession)
+        res.redirect('/campaigns')
     })
 })
 
@@ -59,6 +61,8 @@ router.get('/new/:id', (req, res) => {
 router.get('/:id', (req, res) => {
     Session.findById(req.params.id, req.body, (err, foundSession) => {
         Campaign.findById(foundSession.campaign, (err, foundCampaign) => {
+            console.log(foundSession)
+            console.log(foundCampaign)
             res.render('sessions/show', {
                 session: foundSession,
                 campaign: foundCampaign

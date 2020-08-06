@@ -127,7 +127,7 @@ router.post('/:id', (req,res) => {
 // DELETE
 router.delete('/:id', (req,res) => {
     Campaign.findByIdAndDelete(req.params.id, (err, deletedCampaign) => {
-        //console.log("In Deleter")
+        console.log("In Deleter")
         Session.deleteMany({
             _id: {
                 $in: deletedCampaign.sessions
@@ -145,6 +145,7 @@ router.get('/:id', (req,res) => {
     .populate({path: 'sessions'}) //maybe need to add "match"
     .exec((err, foundCampaign) => {
         if (err) {console.log(err)}
+        console.log(foundCampaign)
         res.render('campaigns/show.ejs', {
             campaign: foundCampaign,
         })
