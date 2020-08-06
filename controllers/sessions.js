@@ -79,9 +79,6 @@ router.post('/:id', async (req, res) => {
         await foundCampaign.save() 
         //console.log("saved campaign: " + foundCampaign)
         res.redirect('/campaigns/' + req.params.id)
-        await foundCampaign.save() 
-        //console.log("saved campaign: " + foundCampaign)
-        res.redirect('/campaigns/' + req.params.id)
     } catch (err) {
         console.log(err)
     }

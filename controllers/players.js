@@ -34,6 +34,7 @@ router.post('/', (req, res) => {
 // SHOW
 router.get('/:id', (req,res) => {
     Player.findById(req.params.id, req.body, (err, foundPlayer) => {
+        console.log(foundPlayer)
         res.render('players/show.ejs', {
             player: foundPlayer,
         })

@@ -153,8 +153,13 @@ router.delete('/:id', (req,res) => {
 // SHOW
 router.get('/:id', async (req,res) => {
     const foundCampaign = await Campaign.findById(req.params.id)
+    .populate({path: 'sessions'})
     const dungeonMaster = await Player.findById(foundCampaign.dungeonMaster)
-    .populate({path: 'sessions'}) //maybe need to add "match"
+    if (!dungeonMaster.campaignsDMing.includes(foundCampaign._id)) {
+        await dungeonMaster.campaignsDMing.push(foundCampaign._id) //PUSHING MULTIPLE (3) TIMES?
+    }
+    await dungeonMaster.save() 
+    //maybe need to add "match"
     // .exec((err, foundCampaign) => {
     //     if (err) {console.log(err)}
     //     res.render('campaigns/show.ejs', {

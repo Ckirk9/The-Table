@@ -20,5 +20,11 @@
     </nav>
     <h1><%= player.username %></h1>
     <p><%= player.bio %></p>
+    <% if (player.campaignsDMing[0]) { %>
+        <%= player.username %> is the dungeon master for: <br>
+        <% player.campaignsDMing.forEach(campaign => { %>
+            <%= campaign %> <br>
+        <% }) %>   
+    <% } %>
 </body>
 </html>
