@@ -36,11 +36,9 @@ app.use(ejsLayouts);
 
 
 // Session Routes 
-// route for sessions
 app.use('/sessions', sessionsController)
 
 // Campaign Routes
-// route for campaign
 app.use('/campaigns', campaignsController)
 
 // root route to homepage

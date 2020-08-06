@@ -1,4 +1,3 @@
-    <title>Campaigns Filter Results</title>
 </head>
             <a href="/" class="nav-link link-dark">Home</a>
             <a href="/campaigns/new" class="nav-link link-dark">New Campaign</a>
@@ -8,9 +7,8 @@
 </nav>
 
 <h1 class="pg text-dark">Campaigns</h1>
-    <div class="text-dark">
-        <% campaigns.forEach(campaign => { %>
-            <a class="btn btn-light btn-lg btn-block shadow-1-strong" href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a>
-        <% }) %>
-    </div>
-    
+<div class="text-dark">
+    <% campaigns.forEach(campaign => { %>
+        <a class="btn btn-light btn-lg btn-block shadow-1-strong" href='/campaigns/<%= campaign._id %>'><%= campaign.name %></a>
+    <% }) %>
+</div>

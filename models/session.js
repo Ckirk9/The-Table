@@ -6,7 +6,6 @@ const sessionSchema = new mongoose.Schema ({
     title: { type: String, required: true },
     body: {type: String, required: true},
     sessionDate: {type: Date, required: true},
-    //creating a relationship through a reference
     campaign: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Campaign',
