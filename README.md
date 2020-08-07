@@ -42,25 +42,29 @@ This is a site that allows users to view Table Top Campaigns and create and read
 - Each Campaign will have a Campaign Description, Start Date, list the DM and Players, and have Titles [links] to each Session Summary, and a link to create a new Session Summary
 - When you click on the Title of a Session you’ll be navigated to see the full Session Summary, the date the Session took place, and you’ll have the option to edit or delete the Session Summary.
 
+## Entity Relationship Diagram
+
+![Entity Relationship Diagram](/public/assets/diagrams/erd.png)
+
 ## Wireframes
 
 ### Site Overview  
-![Site Overview](/assets/wireframes/site-overview.png)
+![Site Overview](/public/assets/wireframes/site-overview.png)
 
 ### Landing Page 
-![Home Screen](/assets/wireframes/home-page.png)
+![Home Screen](/public/assets/wireframes/home-page.png)
 
 ### Campaign Index/Search Page 
-![Campaign Index](/assets/wireframes/campaign-index.png)
+![Campaign Index](/public/assets/wireframes/campaign-index.png)
 
 ### Create Campaign Page 
-![Campaign Creation](/assets/wireframes/create-campaign.png)
+![Campaign Creation](/public/assets/wireframes/create-campaign.png)
 
 ### Campaign Overview Page 
-![Campaign Overview](/assets/wireframes/campaign-overview.png)
+![Campaign Overview](/public/assets/wireframes/campaign-overview.png)
 
 ### Session Summary Page 
-![Session Summary](/assets/wireframes/session-summary.png)
+![Session Summary](/public/assets/wireframes/session-summary.png)
 
 ### Create Session Summary Page 
-![Create Summary](/assets/wireframes/create-summary.png)
+![Create Summary](/public/assets/wireframes/create-summary.png)
